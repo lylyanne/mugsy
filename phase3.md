@@ -8,7 +8,7 @@
 * ProductsController (create, index, delete)
 
 ### Views
-* products/index.html.erb (shopping cart page. Only show all orders
+* products/cart.html.erb (shopping cart page. Only show all orders
   for current user with status: in-cart)
 
 ## Backbone

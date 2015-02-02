@@ -8,7 +8,7 @@
 * ProductsController (index)
 
 ### Views
-* products/index.html.erb (All purchases page. Only show all orders
+* products/purchases.html.erb (All purchases page. Only show all orders
   for current user with status: incomplete and complete. Page should be
   ordered by incomplete purchased followed by complete purchased. Within
   the incomplete purchased and complete purchased, page should be
