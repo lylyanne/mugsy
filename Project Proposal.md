@@ -74,18 +74,21 @@ If the user is not logged in, the button on product show page will say
 button.
 
 I envision when the user adds item to shopping cart, I'll make an entry
-in the Orders database with status 'in-cart'. The Orders database
-contain id, store_id, buyer_id, product_id, product_name, price, status.
+in the Orders database with status 'in-cart'. The Orders table
+contains id, store_id, buyer_id, product_id, product_name, price, status.
 
 When the user clicks the checkout button, then all the orders with this
 user's buyer id will change status to 'incomplete' and seller will be
-able to see the orders on their page.
+able to see that they have pending orders on their page.
 
-Seller can then click the 'Shipped' button to change the order status to
-'complete'. Once seller clicked the shipped button, the order will not
-show up in their orders page anymore.
+Seller can then click the 'Shipped' button on each item to change the
+order status to 'complete'. When seller marked an item as 'shipped', buyer
+will see the item status as shipped on their purchases page. Once seller
+clicked the shipped button, the order will not show up in their orders
+page anymore.
 
-Is this sounds like a reasonable workflow, is my schema correct?
+Is this sounds like a reasonable workflow, is this how I should approach
+shopping cart?
 
 **Bonus Feature:**
 * Search feature
