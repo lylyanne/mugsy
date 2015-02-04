@@ -1,0 +1,19 @@
+<div class="backdrop">
+  <div id="shop-navigation">
+    <div id="your-shop">
+
+      <ul>
+        <h5>Shop</h5>
+        <% if current_user.shop %>
+          <li><a href="#/shops/<%= current_user.shop.id %>">View shop</a></li>
+          <li><a href="#/shops/<%= current_user.shop.id %>/edit">Edit shop</a></li>
+        <% else %>
+          <li>Create shop</li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div id="main">Main Backbone page</div>
+</div>
+<script>$(EtsyClone.initialize);</script>

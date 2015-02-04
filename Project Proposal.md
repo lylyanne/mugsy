@@ -15,14 +15,14 @@ As Etsy clone, users can:
 
 **Schema Information**
 
-**stores**
+**shops**
 
 | column name   | data type  | details                                 |
 | ------------- |:----------:| ---------------------------------------:|
 | id            | integer    | not null, primary key                   |
 | owner_id      | integer    | not null, foreign key (ref. users)      |
 | name          | string     | not null                                |
-| store_img     | string     | not null
+| shop_img     | string     | not null
 
 **products**
 

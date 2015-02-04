@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+#your-shop {
+  float: left
+}
+
+hr {
+  clear: both
+}
