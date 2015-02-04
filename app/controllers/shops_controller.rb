@@ -10,7 +10,7 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.owner_id = current_user.id
     if @shop.save
-      redirect_to shop_url(@shop)
+      render :json => @shop
     else
       flash.now[:errors] = @shop.errors.full_messages
       render :new

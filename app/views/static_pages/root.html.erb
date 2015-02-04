@@ -8,7 +8,7 @@
           <li><a href="#/shops/<%= current_user.shop.id %>">View shop</a></li>
           <li><a href="#/shops/<%= current_user.shop.id %>/edit">Edit shop</a></li>
         <% else %>
-          <li>Create shop</li>
+          <li><a href="#/shops/new">Create shop</a></li>
         <% end %>
       </ul>
     </div>

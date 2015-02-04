@@ -6,6 +6,7 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'welcome',
+    'shops/new': 'shopNew',
     'shops/:id': 'shopShow',
     'shops/:id/edit' : 'shopEdit'
   },
@@ -13,6 +14,17 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
   welcome: function () {
     var welcomeView = new EtsyClone.Views.ShopWelcome();
     this._swapView(welcomeView);
+  },
+
+  shopNew: function (id) {
+    var shop = new EtsyClone.Models.Shop();
+
+    var newView = new EtsyClone.Views.ShopForm({
+      model: shop,
+      collection: this.shops
+    });
+    
+    this._swapView(newView);
   },
 
   shopShow: function (id) {

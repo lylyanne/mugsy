@@ -40,9 +40,6 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
       function(Blob){
         this._params.shop["shop_image"] = Blob.url;
         $(".shop-form-image").attr("src", Blob.url);
-        debugger
-        console.log(Blob.url);
-        //that.render();
       }.bind(this)
     );
   },
