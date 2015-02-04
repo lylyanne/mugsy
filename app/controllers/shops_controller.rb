@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :require_signed_in!, only: [:new, :create]
+  before_action :require_signed_in!, only: [:new, :create, :edit, :update]
 
   def new
     @shop = Shop.new
@@ -14,6 +14,23 @@ class ShopsController < ApplicationController
     else
       flash.now[:errors] = @shop.errors.full_messages
       render :new
+    end
+  end
+
+  def edit
+    @shop = Shop.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @shop }
+    end
+  end
+
+  def update
+    @shop = Shop.find(params[:id])
+    if @shop.update(shop_params)
+      render :json => @shop
+    else
+      flash.now[:errors] = @shop.errors.full_messages
+      render :edit
     end
   end
 

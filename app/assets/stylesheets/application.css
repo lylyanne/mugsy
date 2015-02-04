@@ -21,3 +21,21 @@
 hr {
   clear: both
 }
+
+.shop-image {
+  margin: 5px 10px;
+  border-radius: 5px;
+  float: left;
+}
+
+.shop-form-image {
+  border-radius: 5px;
+}
+
+.update-logo {
+  margin-left: 10px;
+}
+
+.shop-submit {
+  margin-top: 10px;
+}
