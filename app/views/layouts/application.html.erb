@@ -36,7 +36,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if signed_in? %>
 
-          <li><%= link_to "Your Shop", root_url %></li>
+          <li><%= link_to "Your Shop", "#/shop_management" %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">

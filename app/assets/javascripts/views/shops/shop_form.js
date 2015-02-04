@@ -29,6 +29,8 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
       shop: this.model
     });
     this.$el.html(renderedContent);
+    var mgmt = new EtsyClone.Views.ShopManagement();
+    this.$('.shop-management').append(mgmt.render().$el);
     return this;
   },
 
@@ -54,6 +56,7 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
     this.model.save({}, {
       success: function () {
         that.collection.add(that.model, { merge: true });
+        CURRENT_USER.shop = that.model;
         Backbone.history.navigate("#/shops/" + that.model.id, { trigger: true });
       }
     });

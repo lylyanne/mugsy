@@ -4,7 +4,7 @@ window.EtsyClone = {
   Views: {},
   Routers: {},
   initialize: function() {
-    var $rootEl =  $('#main');
+    var $rootEl =  $('#shop-navigation');
     var shops = new EtsyClone.Collections.Shops();
     shops.fetch();
 

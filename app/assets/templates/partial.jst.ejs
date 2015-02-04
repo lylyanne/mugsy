@@ -1,0 +1,12 @@
+<div id="your-shop">
+  <ul>
+    <h5>Shop</h5>
+      <% if (currentUser.shop.id) { %>
+      <li><a href="#/shops/<%= currentUser.shop.id %>">View shop</a></li>
+      <li><a href="#/shops/<%= currentUser.shop.id %>/edit">Edit shop</a></li>
+      <% } else { %>
+        <li><a href="#/shops/new">Create shop</a></li>
+      <% } %>
+  </ul>
+</div>
+<hr>

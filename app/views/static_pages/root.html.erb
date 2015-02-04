@@ -1,6 +1,6 @@
 <div class="backdrop">
   <div id="shop-navigation">
-    <div id="your-shop">
+    <!-- <div id="your-shop">
 
       <ul>
         <h5>Shop</h5>
@@ -13,7 +13,11 @@
       </ul>
     </div>
   </div>
-  <hr>
-  <div id="main">Main Backbone page</div>
+  <hr> -->
+  <!-- <div id="main">Main Backbone page</div> -->
 </div>
-<script>$(EtsyClone.initialize);</script>
+<script>
+  CURRENT_USER = JSON.parse('<%= current_user.to_json(include: [:shop], except: [:password_digest, :session_token]).html_safe %>');
+  CURRENT_USER.shop = new EtsyClone.Models.Shop(CURRENT_USER.shop)
+  $(EtsyClone.initialize);
+</script>
