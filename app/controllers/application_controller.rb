@@ -4,7 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # Expose these methods to the views
-  helper_method :current_user, :signed_in?
+  helper_method :current_user, :current_order, :signed_in?
+
+  def current_order
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
+  end
 
   private
   def current_user

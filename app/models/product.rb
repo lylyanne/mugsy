@@ -4,4 +4,5 @@ class Product < ActiveRecord::Base
   validates :category, inclusion: { in: PRODUCT_CATEGORY }
 
   belongs_to :shop
+  has_many :order_items
 end

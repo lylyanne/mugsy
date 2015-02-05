@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subtotal: 
+  subtotal: 
+  tax: 
+  tax: 
+  shipping: 
+  shipping: 
+  total: 
+  total: 
+  order_status_id: 
+
+two:
+  subtotal: 
+  subtotal: 
+  tax: 
+  tax: 
+  shipping: 
+  shipping: 
+  total: 
+  total: 
+  order_status_id: 

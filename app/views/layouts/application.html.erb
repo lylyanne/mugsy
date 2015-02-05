@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= filepicker_js_include_tag %>
-  <script type="text/javascript">filepicker.setKey(<%= ENV["filepicker_api_key"] %>)</script>
+  <script type="text/javascript">filepicker.setKey('<%= ENV["filepicker_api_key"] %>')</script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -50,6 +50,7 @@
           <li><%= link_to "Sign In", new_session_url %></li>
           <li><%= link_to "Sign Up", new_user_url %></li>
           <% end %>
+          <li><%= render 'layouts/cart_text' %></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
