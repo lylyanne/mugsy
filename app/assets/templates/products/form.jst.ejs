@@ -18,7 +18,7 @@
         <%= product.escape('description') %></textarea><br>
 
         <label for='price'>Product price:</label><br>
-        <input type='number' name='product[price]' id='product_price'
+        <input type='number' name='product[price]' min="0.01" step="0.01" id='product_price'
         value='<%= product.escape('price') %>'><br>
 
         <input type="radio" name="product[category]"

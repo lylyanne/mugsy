@@ -2,19 +2,11 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
   template: JST["shops/form"],
 
   initialize: function () {
-    this.setFilepicker();
     this._imageUrl = "";
     this._params = Object.create(null);
     this._params["shop"] = {
       "name": null,
       "shop_image": null
-    }
-  },
-
-  setFilepicker: function(){
-    if (filepicker){
-      //if loaded set key
-      filepicker.setKey(ENV["filepicker_api_key"]);
     }
   },
 
@@ -24,7 +16,6 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
   },
 
   render: function () {
-    this.setFilepicker();
     var renderedContent = this.template({
       shop: this.model
     });

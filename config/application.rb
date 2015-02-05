@@ -21,7 +21,6 @@ module EtsyClone
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.filepicker_rails.api_key = "Aqfd2iWRiQPitlj7Gri0Qz"
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
