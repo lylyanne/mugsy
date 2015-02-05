@@ -1,2 +1,21 @@
-<h1>This is <%= @shop.name %></h1>
-<%= filepicker_image_tag @shop.shop_image, w: 160, h: 160, fit: 'clip' %>
+<div class="shop-management"></div>
+<div class="row">
+  <%= filepicker_image_tag @shop.shop_image, w: 160, h: 160, fit: 'clip' %>
+  <div class="product-item-wrapper col-md-8 col-md-offset-2">
+    <h1>This is <%= @shop.name %></h1>
+
+    <% @shop.products.each do |product| %>
+    <div class="product-item">
+      <img src="<%= product.product_image %>" width="238" height="200">
+
+      <h5><%= product.name %></h5>
+      <h5>by <%= link_to product.shop.name,  shop_url(product.shop) %></h5>
+      <h6 class="product-price">$<%= product.price %> USD</h6>
+
+      <% if product.shop.id != current_user.shop.id %>
+        <a href="#">Add to cart</a>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   resources :shops, only: [:show]
+  resources :products, only: [:index]
 end

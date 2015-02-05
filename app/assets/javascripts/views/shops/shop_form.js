@@ -14,7 +14,7 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
   setFilepicker: function(){
     if (filepicker){
       //if loaded set key
-      filepicker.setKey("Aqfd2iWRiQPitlj7Gri0Qz");
+      filepicker.setKey(ENV["filepicker_api_key"]);
     }
   },
 
