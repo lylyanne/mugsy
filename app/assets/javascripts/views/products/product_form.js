@@ -1,13 +1,12 @@
-EtsyClone.Views.ShopForm = Backbone.View.extend({
-  template: JST["shops/form"],
+EtsyClone.Views.ProductForm = Backbone.View.extend({
+  template: JST["products/form"],
 
   initialize: function () {
     this.setFilepicker();
     this._imageUrl = "";
     this._params = Object.create(null);
-    this._params["shop"] = {
-      "name": null,
-      "shop_image": null
+    this._params["product"] = {
+      "product_image": null
     }
   },
 
@@ -19,14 +18,14 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
   },
 
   events: {
-    'click button.update-logo': 'pickALogo',
+    'click button.update-image': 'pickAProductImage',
     'submit form' : 'submit'
   },
 
   render: function () {
     this.setFilepicker();
     var renderedContent = this.template({
-      shop: this.model
+      product: this.model
     });
     this.$el.html(renderedContent);
     var mgmt = new EtsyClone.Views.ShopManagement({model: CURRENT_USER.shop});
@@ -34,14 +33,14 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
     return this;
   },
 
-  pickALogo: function () {
+  pickAProductImage: function () {
     event.preventDefault();
     var that = this;
 
     filepicker.pick(
       function(Blob){
-        this._params.shop["shop_image"] = Blob.url;
-        $(".shop-form-image").attr("src", Blob.url);
+        this._params.product["product_image"] = Blob.url;
+        $(".product-form-image").attr("src", Blob.url);
       }.bind(this)
     );
   },
@@ -49,15 +48,15 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
   submit: function (event) {
     event.preventDefault();
     var that = this;
-
-    this._params.shop["name"] = $("#shop_name").val();
-    this._params.shop["shop_image"] = $(".shop-form-image").attr("src");
+    var $form = $(event.currentTarget);
+    var params = $form.serializeJSON();
+    _.extend(this._params, params);
+    this._params.product["product_image"] = $(".product-form-image").attr("src");
     this.model.set(this._params);
     this.model.save({}, {
       success: function () {
-        that.collection.add(that.model, { merge: true });
-        CURRENT_USER.shop = that.model;
-        Backbone.history.navigate("#/shops/" + that.model.id, { trigger: true });
+        CURRENT_USER.shop.products().add(that.model, { merge: true });
+        Backbone.history.navigate("#/products/" + that.model.id, { trigger: true });
       }
     });
   }

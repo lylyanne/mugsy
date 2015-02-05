@@ -17,7 +17,7 @@
   <!-- <div id="main">Main Backbone page</div> -->
 </div>
 <script>
-  CURRENT_USER = JSON.parse('<%= current_user.to_json(include: [:shop], except: [:password_digest, :session_token]).html_safe %>');
-  CURRENT_USER.shop = new EtsyClone.Models.Shop(CURRENT_USER.shop)
+  CURRENT_USER = JSON.parse('<%= current_user.to_json(include: {:shop => {:include => :products}}, except: [:password_digest, :session_token]).html_safe %>');
+  CURRENT_USER.shop = new EtsyClone.Models.Shop(CURRENT_USER.shop, {parse: true})
   $(EtsyClone.initialize);
 </script>

@@ -29,12 +29,12 @@ As Etsy clone, users can:
 | column name   | data type  | details                                 |
 | ------------- |:----------:| ---------------------------------------:|
 | id            | integer    | not null, primary key                   |
-| store_id      | integer    | not null, foreign key (ref. stores)     |
-| product_name  | string     | not null                                |
+| shop_id       | integer    | not null, foreign key (ref. stores)     |
+| name          | string     | not null                                |
 | product_img   | string     | not null                                |
-| product_desc  | text       | not null                                |
+| description   | text       | not null                                |
 | price         | float      | not null                                |
-| categories    | string     | not null                                |
+| category      | string     | not null                                |
 
 **orders**
 
