@@ -7,7 +7,7 @@
         </a>
         <h5><%= product.get("name") %></h5>
         <h6 class="product-price">$<%= product.get("price") %> USD</h6>
-        <button class="edit-product">Edit product</button>
+        <a class="edit-product" href="#/products/<%= product.get("id") %>/edit">Edit product</a>
       </div>
     <% }) %>
   </div>

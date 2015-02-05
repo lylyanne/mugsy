@@ -22,15 +22,21 @@
         value='<%= product.escape('price') %>'><br>
 
         <input type="radio" name="product[category]"
-value="travel mug" id="product_category_travel_mug">
+value="travel mug" id="product_category_travel_mug"
+        <%= (product.get("category") === "travel mug") ? 'checked' : '' %>
+        >
         <label for="product_category_travel_mug">travel mug</label>
         <br>
         <input type="radio" name="product[category]"
-value="mason jar" id="product_category_mason_jar">
+value="mason jar" id="product_category_mason_jar"
+        <%= (product.get("category") === "mason jar") ? 'checked' : '' %>
+        >
         <label for="product_category_mason_jar">mason jar</label>
         <br>
         <input type="radio" name="product[category]"
-value="coffee mug" id="product_category_coffee_mug">
+value="coffee mug" id="product_category_coffee_mug"
+        <%= (product.get("category") === "coffee mug") ? 'checked' : '' %>
+        >
         <label for="product_category_coffee_mug">coffee mug</label>
         <br>
 

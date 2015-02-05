@@ -19,6 +19,23 @@ class Api::ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @product }
+    end
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      render :json => @product
+    else
+      flash.now[:errors] = @product.errors.full_messages
+      render :edit
+    end
+  end
+
   def show
     @product = Product.find(params[:id])
     respond_to do |format|
