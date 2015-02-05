@@ -56,7 +56,7 @@ hr {
 }
 
 .product-item-wrapper {
-  width: 900px;
+  width: 930px;
 }
 
 .product-item {
@@ -65,4 +65,13 @@ hr {
   border: 1px solid lightgray;
   padding: 5px;
   margin: 10px;
+  background-color: #E3E1CC;
+}
+
+.product-price {
+  display: inline;
+}
+
+.edit-product {
+  float: right;
 }
