@@ -1,14 +1,19 @@
 class OrdersController < ApplicationController
+  IN_CART = 1
+  PLACED = 2
+  SHIPPED = 3
+  CACELLED = 4
+
   def checkout
     @order = current_order
-    @order.update_attributes({order_status_id: 2})
+    @order.update_attributes({order_status_id: PLACED})
     session[:order_id] = nil
     redirect_to products_url
   end
 
   def shipped
     @order = Order.find(params[:id])
-    @order.update_attributes({order_status_id: 3})
+    @order.update_attributes({order_status_id: SHIPPED})
     redirect_to seller_orders_url
   end
 
