@@ -6,17 +6,17 @@ class ApplicationController < ActionController::Base
   # Expose these methods to the views
   helper_method :current_user, :current_order, :signed_in?
 
+  private
+  def current_user
+    @current_user ||= User.find_by_session_token(session[:session_token])
+  end
+
   def current_order
     if !session[:order_id].nil?
       Order.find(session[:order_id])
     else
       Order.new
     end
-  end
-
-  private
-  def current_user
-    @current_user ||= User.find_by_session_token(session[:session_token])
   end
 
   def signed_in?
@@ -31,9 +31,18 @@ class ApplicationController < ActionController::Base
   def sign_out
     current_user.try(:reset_token!)
     session[:session_token] = nil
+    clear_cart
   end
 
   def require_signed_in!
     redirect_to new_session_url unless signed_in?
+  end
+
+  def clear_cart
+    current_order.order_items.each do |order_item|
+      order_item.destroy
+    end
+    current_order.destroy
+    session[:order_id] = nil
   end
 end
