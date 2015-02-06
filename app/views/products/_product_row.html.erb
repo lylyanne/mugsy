@@ -17,7 +17,11 @@
         <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
         <div class="input-group-btn">
           <%= f.hidden_field :product_id, value: product.id %>
-          <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+          <% if product.shop.id != current_user.shop.id %>
+            <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+          <% else %>
+            <%= f.submit "Add to Cart", class: "btn btn-primary", disabled: true %>
+          <% end %>
         </div>
       </div>
       <% end %>
