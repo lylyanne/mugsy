@@ -1,0 +1,19 @@
+<h3 class="text-center">All my purchases</h3>
+
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <% if @order_items.size == 0 %>
+    <p class="text-center">
+      You have never made a purchase.  Please
+      <%= link_to "go back", products_url %>
+      and add some items to your cart.
+    </p>
+    <% else %>
+      <% @order_items.each do |order_item| %>
+        <%= render "purchase_row",
+            product: order_item.product,
+            order_item: order_item %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

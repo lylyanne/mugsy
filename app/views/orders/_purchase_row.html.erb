@@ -1,0 +1,17 @@
+<div class="well">
+
+  <div class="row">
+    <div class="col-xs-8">
+      <img class="shop-image" src="<%= product.product_image %>"
+      width="150" height="150" >
+      <h4><%= product.name %></h4>
+      <p>by <%= link_to product.shop.name, shop_url(product.shop_id) %></p>
+      <p>Quantity: <%= order_item.quantity %></p> 
+    </div>
+
+    <div class="col-xs-4 text-center">
+      <h3 style="color: green"><%= order_item.order.order_status.name %></h3>
+    </div>
+
+  </div>
+</div>

@@ -18,11 +18,11 @@
       <%= render 'carts/cart_row', product: order_item.product,
         order_item: order_item, show_total: true %>
     <% end %>
-    <div class="col-xs-12">
+    <div class="col-xs-12 text-right">
       <h4 class="text-right">Subtotal: <span style="color: green"><%= number_to_currency @order.subtotal %></span></h4>
       <h4 class="text-right">Shipping: <span style="color: green"><%= number_to_currency @order.shipping %></span></h4>
       <h4 class="text-right">Tax: <span style="color: green"><%= number_to_currency @order.tax %></span></h4>
       <h3 class="text-right">Total: <span style="color: green"><%= number_to_currency @order.total %></span></h3>
-      <%= button_to "Checkout" %>
+      <%= button_to "Checkout", checkout_url, class: "btn btn-primary" %>
     </div>
 <% end %>

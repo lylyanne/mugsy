@@ -1,0 +1,10 @@
+<h3 class="text-center">All my orders</h3>
+
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <% @orders.each do |order| %>
+    <%= render "order_row",
+    order: order %>
+    <% end %>
+  </div>
+</div>

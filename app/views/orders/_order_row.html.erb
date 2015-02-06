@@ -1,0 +1,26 @@
+<div class="well">
+
+  <div class="row">
+    <div class="col-xs-8">
+      <% order.order_items.each do |order_item| %>
+        <h5><%= order_item.product.name %></h5>
+        <h5>Quantity: <%= order_item.quantity %></h5>
+        <br>
+      <% end %>
+      <h5>Ordered at <%= order.created_at %></h5>
+    </div>
+
+    <div class="col-xs-4 text-center">
+      <h5>Buyer: </h5>
+      <h5 style="color: green"><%= order.order_items.first.buyer.email %></h5>
+      <% if order.order_status_id == 2 %>
+        <div class="btn-group">
+          <%= button_to "Mark shipped", shipped_url(order.id) , class: "btn btn-primary" %>
+        </div>
+      <% else %>
+        <h5><%= order.order_status.name %></h5>
+      <% end %>
+    </div>
+
+  </div>
+</div>

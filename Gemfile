@@ -28,7 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'newrelic_rpm'
 gem 'filepicker-rails'
 gem 'backbone-on-rails'
-
+gem 'annotate'
 gem "figaro"
 
 # Use Unicorn as the app server
