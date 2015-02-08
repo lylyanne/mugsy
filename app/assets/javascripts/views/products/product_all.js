@@ -2,7 +2,8 @@ EtsyClone.Views.ProductAll = Backbone.CompositeView.extend({
   template: JST["products/all"],
 
   initialize: function () {
-    this.order_item_collection = new EtsyClone.Collections.OrderItems();
+    var order = new EtsyClone.Models.Order(CURRENT_ORDER);
+    this.order_item_collection = order.order_items();
     this.listenTo(this.collection, 'sync', this.render);
   },
 
@@ -11,10 +12,10 @@ EtsyClone.Views.ProductAll = Backbone.CompositeView.extend({
       model: product
     });
 
-    this.addSubview(".col-xs-7", productView);
+    this.addSubview(".product", productView);
 
     if (CURRENT_USER.shop.id === product.id) {
-      this.$('.col-xs-5').append(
+      this.$('.form').append(
         '<a href="#/products/"'+ product.id + '/edit/">Edit Product</a>'
       )
     } else {
@@ -25,7 +26,7 @@ EtsyClone.Views.ProductAll = Backbone.CompositeView.extend({
   renderProducts: function () {
     this.collection.each(this.addProduct.bind(this));
   },
-  
+
   renderOrderItemForm: function (product) {
     var new_item = new EtsyClone.Models.OrderItem();
 
@@ -35,7 +36,7 @@ EtsyClone.Views.ProductAll = Backbone.CompositeView.extend({
       product: product
     } );
 
-    this.addSubview(".col-xs-5", orderFormView);
+    this.addSubview(".form", orderFormView);
   },
 
   render: function () {

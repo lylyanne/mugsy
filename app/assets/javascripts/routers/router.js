@@ -12,7 +12,8 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
     // 'seller_products/new' : 'productNew',
     'seller_products/all' : 'productAll',
     // 'seller_products/:id' : 'productShow',
-    // 'seller_products/:id/edit' : 'productEdit',
+    'products/:id/edit' : 'productEdit',
+    'cart' : 'cartShow'
     // 'buyer_orders' : 'buyerOrders'
   },
 
@@ -82,14 +83,26 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
   //   this._swapView(productView);
   // },
   //
-  // productEdit: function (id) {
-  //   var product = CURRENT_USER.shop.products().getOrFetch(id);
-  //   var editView = new EtsyClone.Views.ProductForm({
-  //     model: product,
-  //     collection:  CURRENT_USER.shop.products()
-  //   });
-  //   this._swapView(editView);
-  // },
+  productEdit: function (id) {
+    var product = CURRENT_USER.shop.products().getOrFetch(id);
+    var editView = new EtsyClone.Views.ProductForm({
+      model: product,
+      collection:  CURRENT_USER.shop.products()
+    });
+    this._swapView(editView);
+  },
+
+  cartShow: function () {
+    var order = new EtsyClone.Models.Order(CURRENT_ORDER);
+    order.fetch();
+
+    var cartShowView = new EtsyClone.Views.OrderShow({
+      model: order,
+      collection:  order.order_items()
+    });
+
+    this._swapView(cartShowView);
+  },
 
   // buyerOrders: function() {
   //   var orders = new EtsyClone.Collections.Orders();
