@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :shops, except: :destroy
     resources :products
     resources :order_items, only: [:create, :update, :destroy, :index]
-    get '/cart', to: 'carts#index', as: 'cart'
+    resource :cart, only: :show
     get '/buyer_orders', to: 'orders#buyer_orders', as: 'buyer_orders'
   end
 

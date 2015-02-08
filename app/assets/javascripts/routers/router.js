@@ -93,12 +93,11 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
   },
 
   cartShow: function () {
-    var order = new EtsyClone.Models.Order(CURRENT_ORDER);
+    var order = new EtsyClone.Models.Order({id: CURRENT_ORDER.id});
     order.fetch();
 
     var cartShowView = new EtsyClone.Views.OrderShow({
-      model: order,
-      collection:  order.order_items()
+      model: order
     });
 
     this._swapView(cartShowView);
