@@ -38,9 +38,7 @@ class Api::ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    respond_to do |format|
-      format.json { render json: @shop }
-    end
+    render json: @shop, include: :products
   end
 
   def index

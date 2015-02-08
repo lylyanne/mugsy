@@ -1,3 +1,3 @@
 EtsyClone.Models.Product = Backbone.Model.extend({
-  urlRoot: 'api/products',
+  urlRoot: 'api/products'
 })

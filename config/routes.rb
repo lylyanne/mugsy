@@ -3,9 +3,13 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :index]
   resource :session, only: [:new, :create, :destroy]
+  
   namespace :api, :defaults => { :format => :json } do
     resources :shops, except: [:destroy]
-    resources :products
+    resources :seller_products
+    resources :buyer_products, only: [:index, :show]
+    resources :buyer_ordered_items, only: [:create, :update, :destroy]
+    get '/buyer_orders', to: 'orders#buyer_orders', as: 'buyer_orders'
   end
 
   resources :shops, only: [:show]

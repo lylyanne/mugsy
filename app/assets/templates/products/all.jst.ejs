@@ -1,14 +1,13 @@
-<div class="shop-management"></div>
 <div class="row">
   <div class="product-item-wrapper col-md-8 col-md-offset-2">
     <% products.each( function(product) { %>
-      <div class="product-item"><a href="#/products/<%= product.get("id")%>">
+      <div class="product-item"><a href="#/seller_products/<%= product.get("id")%>">
         <img src="<%= product.get("product_image")%>" width="238" height="200">
-        </a>
-        <h5><%= product.get("name") %></h5>
-        <h6 class="product-price">$<%= product.get("price") %> USD</h6>
-        <a class="edit-product" href="#/products/<%= product.get("id") %>/edit">Edit product</a>
-      </div>
+      </a>
+      <h5><%= product.get("name") %></h5>
+      <h6 class="product-price">$<%= product.get("price") %> USD</h6>
+      <a class="edit-product" href="#/seller_products/<%= product.get("id") %>/edit">Edit product</a>
+    </div>
     <% }) %>
   </div>
 </div>

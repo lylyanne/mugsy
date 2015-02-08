@@ -44,8 +44,10 @@ class Api::ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all.where(shop_id: current_user.shop.id)
-    render "index"
+    @products = Product.all.where(shop_id: current_user.shop.try(:id))
+    respond_to do |format|
+      format.json { render json: @products }
+    end
   end
 
   private

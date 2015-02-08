@@ -20,8 +20,6 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
       shop: this.model
     });
     this.$el.html(renderedContent);
-    var mgmt = new EtsyClone.Views.ShopManagement({model: CURRENT_USER.shop});
-    this.$('.shop-management').append(mgmt.render().$el);
     return this;
   },
 
