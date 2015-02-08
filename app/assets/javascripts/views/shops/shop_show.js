@@ -18,7 +18,7 @@ EtsyClone.Views.ShopShow = Backbone.CompositeView.extend({
 
     if (CURRENT_USER.shop.id === this.model.id) {
       this.$('.form').append(
-        '<a href="#/products/"'+ product.id + '/edit/">Edit Product</a>'
+        "<a href='#/products/:id/edit/'>Edit Product</a>"
       )
     } else {
       this.renderOrderItemForm(product);
