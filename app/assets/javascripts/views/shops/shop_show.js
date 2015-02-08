@@ -37,7 +37,7 @@ EtsyClone.Views.ShopShow = Backbone.CompositeView.extend({
       product: product
     } );
 
-    this.addSubview(".col-xs-5", orderFormView);
+    this.addSubview('.col-xs-5', orderFormView);
   },
 
   render: function () {

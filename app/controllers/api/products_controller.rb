@@ -38,16 +38,12 @@ class Api::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    respond_to do |format|
-      format.json { render json: @product }
-    end
+    render json: @product, include: :shop
   end
 
   def index
-    @products = Product.all.where(shop_id: current_user.shop.try(:id))
-    respond_to do |format|
-      format.json { render json: @products }
-    end
+    @products = Product.all
+    render json: @products
   end
 
   private
