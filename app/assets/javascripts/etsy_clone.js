@@ -3,6 +3,7 @@ window.EtsyClone = {
   Collections: {},
   Views: {},
   Routers: {},
+  Utils: {},
   initialize: function() {
     var $rootEl =  $('#shop-navigation');
     var shops = new EtsyClone.Collections.Shops();
