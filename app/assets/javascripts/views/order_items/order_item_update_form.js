@@ -24,7 +24,11 @@ EtsyClone.Views.OrderItemUpdateForm = Backbone.View.extend({
 
   deleteOrderItem: function (event) {
     event.preventDefault();
-    this.model.destroy();
+    this.model.destroy({
+      success: function () {
+        Backbone.history.navigate("#/cart", { trigger: true });
+      }
+    });
   },
 
   render: function () {

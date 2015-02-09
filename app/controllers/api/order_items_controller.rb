@@ -20,6 +20,12 @@ class Api::OrderItemsController < ApplicationController
     @order = current_order
     @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
+
+    #update the order total
+    @order.subtotal
+    @order.tax
+    @order.total
+
     @order_items = @order.order_items
     render "show"
   end
