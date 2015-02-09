@@ -6,10 +6,10 @@ window.EtsyClone = {
   Utils: {},
   initialize: function() {
     var $rootEl =  $('#shop-navigation');
-    var shops = new EtsyClone.Collections.Shops();
-    shops.fetch();
+    EtsyClone.Collections.shops = new EtsyClone.Collections.Shops();
+    EtsyClone.Collections.shops.fetch();
 
-    new EtsyClone.Routers.Router(shops, $rootEl);
+    new EtsyClone.Routers.Router(EtsyClone.Collections.shops, $rootEl);
     Backbone.history.start();
   }
 };

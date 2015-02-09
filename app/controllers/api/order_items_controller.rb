@@ -13,6 +13,7 @@ class Api::OrderItemsController < ApplicationController
     @order_item = @order.order_items.find(params[:id])
     @order_item.update_attributes(order_item_params)
     @order_items = @order.order_items
+    render "show"
   end
 
   def destroy
@@ -20,6 +21,7 @@ class Api::OrderItemsController < ApplicationController
     @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
     @order_items = @order.order_items
+    render "show"
   end
 
   def index

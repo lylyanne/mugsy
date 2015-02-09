@@ -11,7 +11,8 @@ EtsyClone.Views.OrderShow = Backbone.CompositeView.extend({
   addCartOrderItem: function(order_item) {
     var orderItemView = new EtsyClone.Views.OrderItemShow({
       model: order_item,
-      product: order_item.product()
+      product: order_item.product(),
+      collection: this.collection
     });
 
     this.addSubview(".order-item", orderItemView);
@@ -22,6 +23,7 @@ EtsyClone.Views.OrderShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    console.log('rendering order show');
     var renderedContent = this.template({
       order: this.model,
       order_items: this.collection

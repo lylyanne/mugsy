@@ -12,11 +12,16 @@
       </div>
       <div class="col-xs-8 text-right">
         <div class="btn-group">
-          <button class="btn btn-primary">Update Quantity</button>
-          <button class="btn btn-danger">Delete</button>
+          <button class="btn btn-primary update">Update Quantity</button>
+          <button class="btn btn-danger destroy">Delete</button>
         </div>
       </div>
     </div>
-    <h4 class="text-right">Total Price: <span style="color: green">$<%= order_item.escape("total_price") %></span></h4>
+      <h4 class="text-right" name='order_item[total_price]'
+          id='order_item_total_price'>Total Price:
+          <span style="color: green">
+            $<%= order_item.escape("total_price") %>
+          </span>
+      </h4>
     </form>
 </div>
