@@ -1,0 +1,30 @@
+<div class="shopping-cart">
+  <% if (order_items.length == 0) { %>
+  <p class="text-center">
+    There are no items in your shopping cart.  Please
+    <a href='#'>go back</a>
+    and add some items to your cart.
+  </p>
+  <% } else { %>
+    <div class="order-item"></div>
+    <!-- <div class="well">
+      <div class="row">
+        <div class="col-xs-8">
+          <% order_items.each(function(order_item) { %>
+            <li><%= order_item.escape("product_id") %></li>
+          <% })%>
+        </div>
+        <div class="col-xs-4"></div>
+      </div>
+    </div> -->
+
+  <div class="col-xs-12 text-right">
+    <h4 class="text-right">Subtotal: <span style="color: green">$<%= order.escape("subtotal") %></span></h4>
+    <h4 class="text-right">Shipping: <span style="color: green">$<%= order.escape("shipping") %></span></h4>
+    <h4 class="text-right">Tax: <span style="color: green">$<%= order.escape("tax")%></span></h4>
+    <h3 class="text-right">Total: <span style="color: green">$<%= order.escape("total") %></span></h3>
+    <button class="btn btn-primary">Checkout</button>
+  </div>
+  <% } %>
+
+</div>

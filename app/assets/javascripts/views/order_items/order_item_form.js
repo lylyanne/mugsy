@@ -3,6 +3,7 @@ EtsyClone.Views.OrderItemForm = Backbone.View.extend({
 
   initialize: function (options) {
     this.product = options.product
+    this.collection = CURRENT_ORDER.current_order.order_items()
   },
 
   events: {

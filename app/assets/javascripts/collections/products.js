@@ -20,3 +20,5 @@ EtsyClone.Collections.Products = Backbone.Collection.extend({
     return product;
   }
 })
+
+EtsyClone.Collections.products = new EtsyClone.Collections.Products();
