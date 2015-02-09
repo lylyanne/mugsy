@@ -4,12 +4,13 @@ EtsyClone.Collections.Shops = Backbone.Collection.extend({
 
   getOrFetch: function (id) {
     var shop = this.get(id);
+    var shops = this;
 
     if(!shop) {
       shop = new EtsyClone.Models.Shop({ id: id });
       shop.fetch({
         success: function () {
-          this.add(shop);
+          shops.add(shop);
         }.bind(this)
       });
     } else {
@@ -19,3 +20,5 @@ EtsyClone.Collections.Shops = Backbone.Collection.extend({
     return shop;
   }
 })
+
+EtsyClone.Collections.shops = new EtsyClone.Collections.Shops();

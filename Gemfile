@@ -29,7 +29,7 @@ gem 'newrelic_rpm'
 gem 'filepicker-rails'
 gem 'backbone-on-rails'
 gem 'annotate'
-gem "figaro"
+gem 'figaro'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -11,15 +11,14 @@ EtsyClone.Views.ShopShow = Backbone.CompositeView.extend({
 
   addProduct: function(product) {
     var productView = new EtsyClone.Views.ProductShow({
-      model: product
+      model: product,
+      shop: this.model
     });
 
     this.addSubview(".product", productView);
 
-    if (CURRENT_USER.shop.id === this.model.id) {
-      this.$('.form').append(
-        "<a href='#/products/:id/edit/'>Edit Product</a>"
-      )
+    if (CURRENT_USER.shop.id == this.model.id) {
+      this.renderLink(product);
     } else {
       this.renderOrderItemForm(product);
     }
@@ -39,6 +38,14 @@ EtsyClone.Views.ShopShow = Backbone.CompositeView.extend({
     } );
 
     this.addSubview('.form', orderFormView);
+  },
+
+  renderLink: function (product) {
+    var linkView = new EtsyClone.Views.EditProductLink({
+      product: product
+    });
+
+    this.addSubview('.form', linkView);
   },
 
   render: function () {

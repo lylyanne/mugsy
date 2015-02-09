@@ -19,9 +19,4 @@ EtsyClone.Collections.Products = Backbone.Collection.extend({
 
     return product;
   }
-
-  // initialize: function (options) {
-  //   this.shop = options.shop;
-  // }
-
 })

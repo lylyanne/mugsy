@@ -3,9 +3,7 @@ class Api::ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    respond_to do |format|
-      format.json { render json: @product }
-    end
+    render json: @product
   end
 
   def create
@@ -14,16 +12,13 @@ class Api::ProductsController < ApplicationController
     if @product.save
       render :json => @product
     else
-      flash.now[:errors] = @product.errors.full_messages
-      render :new
+      render :json => @product.errors, :status => :unprocessable_entity
     end
   end
 
   def edit
     @product = Product.find(params[:id])
-    respond_to do |format|
-      format.json { render json: @product }
-    end
+    render json: @product
   end
 
   def update
@@ -31,19 +26,18 @@ class Api::ProductsController < ApplicationController
     if @product.update(product_params)
       render :json => @product
     else
-      flash.now[:errors] = @product.errors.full_messages
-      render :edit
+      render :json => @product.errors, :status => :unprocessable_entity
     end
   end
 
   def show
     @product = Product.find(params[:id])
-    render json: @product, include: :shop
+    render "show"
   end
 
   def index
     @products = Product.all
-    render json: @products
+    render "index"
   end
 
   private

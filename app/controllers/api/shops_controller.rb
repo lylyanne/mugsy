@@ -39,7 +39,8 @@ class Api::ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    render json: @shop, include: :products
+    @products = @shop.products
+    render "show"
   end
 
   def index
