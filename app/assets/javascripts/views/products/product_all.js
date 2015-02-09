@@ -13,7 +13,7 @@ EtsyClone.Views.ProductAll = Backbone.CompositeView.extend({
 
     var productView = new EtsyClone.Views.ProductShow({
       model: product,
-      shop: shop
+      shop: product.shop()
     });
 
     this.addSubview(".product", productView);

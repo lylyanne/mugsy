@@ -2,7 +2,8 @@ EtsyClone.Views.ProductShow = Backbone.View.extend({
   template: JST["products/show"],
 
   initialize: function (options) {
-    this.shop = options.shop
+    this.shop = options.shop;
+    this.listenTo(this.shop, 'sync', this.render);
   },
 
   render: function () {

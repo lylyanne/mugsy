@@ -45,7 +45,7 @@ EtsyClone.Views.ProductForm = Backbone.View.extend({
     this.model.save({}, {
       success: function () {
         CURRENT_USER.shop.products().add(that.model, { merge: true });
-        Backbone.history.navigate("#/products/" + that.model.id, { trigger: true });
+        Backbone.history.navigate("#/shop/" + CURRENT_USER.shop.id, { trigger: true });
       }
     });
   }
