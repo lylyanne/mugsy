@@ -13,6 +13,7 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
     'seller_products/all' : 'productAll',
     'products/:id/edit' : 'productEdit',
     'cart' : 'cartShow',
+    'view_my_sales' : 'sellerOrders',
     'view_my_purchases' : 'buyerOrders'
   },
 
@@ -95,9 +96,21 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
     this._swapView(cartShowView);
   },
 
+  sellerOrders: function() {
+    var order_items = new EtsyClone.Collections.OrderItems();
+    order_items.fetch({data: {role: "seller"} } );
+
+    var buyerView = new EtsyClone.Views.SellerOrderItemIndex({
+      collection: order_items
+    });
+
+    this._swapView(buyerView);
+  },
+
   buyerOrders: function() {
     var order_items = new EtsyClone.Collections.OrderItems();
     order_items.fetch({data: {role: "buyer"} } );
+
     var buyerView = new EtsyClone.Views.BuyerOrderItemIndex({
       collection: order_items
     });

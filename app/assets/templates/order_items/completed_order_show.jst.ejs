@@ -1,0 +1,28 @@
+<div class="well">
+  <div class="row">
+    <div class="col-xs-7">
+      <img class="shop-image" src="<%= product.escape("product_image") %>"
+      width="150" height="150">
+      <h4><%= product.escape("name") %></h4>
+      <p>by <a href="#/shops/<%= product.escape("shop_id") %>"><%= shop.escape("name") %> </a></p>
+      <p><%= product.escape("description") %></p>
+    </div>
+    <div class="col-xs-5">
+      <h4 class="text-right">Quantity: <span style="color: green">
+      <%= order_item.escape("quantity") %></span></h4>
+      <% if (order.escape("order_status_id") == 1 ) { %>
+      <h4 class="text-right"><span style="color: green">
+        In Cart</span></h4>
+      <% } else if (order.escape("order_status_id") == 2 ) { %>
+      <h4 class="text-right"><span style="color: green">
+          Placed</span></h4>
+      <% } else if (order.escape("order_status_id") == 3 ) { %>
+      <h4 class="text-right"><span style="color: green">
+          Shipped</span></h4>
+      <% } else { %>
+      <h4 class="text-right"><span style="color: green">
+          Cancelled</span></h4>
+      <% } %>
+    </div>
+  </div>
+</div>

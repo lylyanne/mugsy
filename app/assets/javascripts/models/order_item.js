@@ -3,7 +3,7 @@ EtsyClone.Models.OrderItem = Backbone.Model.extend({
 
   order: function () {
     //this._order = this._order ||
-    return EtsyClone.Collections.order_items.getOrFetch(this.get('order_id'));
+    return EtsyClone.Collections.orders.getOrFetch(this.get('order_id'));
     //return this._order;
   },
 

@@ -1,0 +1,24 @@
+<div class="well">
+
+  <div class="row">
+    <div class="col-xs-8">
+      <h5><%= product.escape("name") %></h5>
+      <h5>Quantity: <%= order_item.escape("quantity") %></h5>
+      <br>
+      <h5>Ordered at <%= order.escape("created_at") %></h5>
+    </div>
+
+    <div class="col-xs-4 text-center">
+      <h5>Buyer: </h5>
+      <h5 style="color: green"><%= order_item.escape("buyer_id") %></h5>
+      <% if (order.escape("order_status_id") == 2) { %>
+      <div class="btn-group">
+        <button class="btn btn-primary">Mark shipped</button>
+      </div>
+      <% } else { %>
+      <h5><%= order.get("order_status_id") %></h5>
+      <% } %>
+    </div>
+
+  </div>
+</div>
