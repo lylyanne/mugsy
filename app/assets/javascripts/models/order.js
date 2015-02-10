@@ -16,8 +16,7 @@ EtsyClone.Models.Order = Backbone.Model.extend({
   },
 
   tax: function () {
-    var tax = 0;
-    tax = this.subtotal() * 0.0925;
+    var tax = this.subtotal() * 0.0925;
     return tax;
   },
 
