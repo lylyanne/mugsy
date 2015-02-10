@@ -1,7 +1,8 @@
 EtsyClone.Views.ProductAll = Backbone.CompositeView.extend({
   template: JST["products/all"],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.$nav = options.$nav;
     var order = new EtsyClone.Models.Order(CURRENT_ORDER);
     this.order_item_collection = order.order_items();
     this.listenTo(this.collection, 'sync', this.render);
@@ -23,6 +24,8 @@ EtsyClone.Views.ProductAll = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template();
     this.$el.html(renderedContent);
+    var mgmt = new EtsyClone.Views.Navbar();
+    this.$nav.html(mgmt.render().$el);
     this.renderProducts();
     return this;
   }

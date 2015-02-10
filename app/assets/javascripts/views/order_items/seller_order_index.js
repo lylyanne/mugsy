@@ -1,7 +1,8 @@
 EtsyClone.Views.SellerOrderItemIndex = Backbone.CompositeView.extend({
   template: JST["order_items/seller_index"],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.$nav = options.$nav;
     this.listenTo(this.collection, "sync", this.render);
     //this.listenTo(this.collection, 'add', this.addOrderItem);
   },
@@ -25,6 +26,8 @@ EtsyClone.Views.SellerOrderItemIndex = Backbone.CompositeView.extend({
       order_items: this.collection
     });
     this.$el.html(renderedContent);
+    var mgmt = new EtsyClone.Views.Navbar();
+    this.$nav.html(mgmt.render().$el);
     this.renderOrderedItems();
     return this;
   }

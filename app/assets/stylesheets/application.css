@@ -66,3 +66,16 @@ hr {
 .edit-product {
   float: right;
 }
+
+a.nav-link {
+  color: black;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  text-decoration: none;
+  display: block;
+}
+
+a.nav-link:hover {
+  background-color: #f5f5f5;
+}

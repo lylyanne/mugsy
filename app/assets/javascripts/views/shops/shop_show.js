@@ -1,7 +1,8 @@
 EtsyClone.Views.ShopShow = Backbone.CompositeView.extend({
   template: JST["shops/show"],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.$nav = options.$nav;
     this.collection = this.model.products();
     var order = new EtsyClone.Models.Order(CURRENT_ORDER);
     this.order_item_collection = order.order_items();
@@ -28,6 +29,8 @@ EtsyClone.Views.ShopShow = Backbone.CompositeView.extend({
     });
 
     this.$el.html(renderedContent);
+    var mgmt = new EtsyClone.Views.Navbar();
+    this.$nav.html(mgmt.render().$el);
     this.renderProducts();
     return this;
   }

@@ -1,7 +1,8 @@
 EtsyClone.Views.ShopForm = Backbone.View.extend({
   template: JST["shops/form"],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.$nav = options.$nav;
     this._imageUrl = "";
     this._params = Object.create(null);
     this._params["shop"] = {
@@ -20,6 +21,8 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
       shop: this.model
     });
     this.$el.html(renderedContent);
+    var mgmt = new EtsyClone.Views.Navbar();
+    this.$nav.html(mgmt.render().$el);
     return this;
   },
 
