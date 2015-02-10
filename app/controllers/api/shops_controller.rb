@@ -1,6 +1,5 @@
 class Api::ShopsController < ApplicationController
   before_action :require_signed_in!, only: [:new, :create, :edit, :update]
-  before_action :require_user_own_shop!, only: [:edit, :update]
 
   def new
     @shop = Shop.new
@@ -53,13 +52,5 @@ class Api::ShopsController < ApplicationController
   private
   def shop_params
     params.require(:shop).permit(:name, :shop_image)
-  end
-
-  def require_user_owns_shop!
-    if Shop.find(params[:id]).owner == current_user
-      return
-    else
-      redirect_to root_url
-    end
   end
 end
