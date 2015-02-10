@@ -1,4 +1,4 @@
 <a href="#/cart" class="btn btn-link">
-    <%= currentOrder.escape("order_items").length %> Items in Cart
-   ($<%= currentOrder.escape("subtotal") %>)
+    <%= currentOrder.order_items().length %> Items in Cart
+   ($<%= currentOrder.subtotal() %>)
 </a>

@@ -21,4 +21,4 @@ EtsyClone.Collections.Orders = Backbone.Collection.extend({
   }
 })
 
-EtsyClone.Collections.orders = new EtsyClone.Collections.Orders();
+// EtsyClone.Collections.orders = new EtsyClone.Collections.Orders();

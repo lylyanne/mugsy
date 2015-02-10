@@ -4,6 +4,12 @@ class Api::OrdersController < ApplicationController
   SHIPPED = 3
   CACELLED = 4
 
+  def create
+    current_order.update_attributes(order_params)
+    @order = current_order
+    render "show"
+  end
+
   def show
     @order_items = current_order.order_items
     @order = current_order
@@ -20,5 +26,10 @@ class Api::OrdersController < ApplicationController
   def index
     @orders = Order.all
     render "index"
+  end
+
+  private
+  def order_params
+    params.require(:order).permit(:subtotal, :tax, :shipping, :total)
   end
 end
