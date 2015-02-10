@@ -1,7 +1,8 @@
 EtsyClone.Views.OrderShow = Backbone.CompositeView.extend({
   template: JST["orders/show"],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.$cart = options.$cart;
     this.collection = this.model.order_items();
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.collection, 'sync add remove', this.render);
@@ -31,7 +32,8 @@ EtsyClone.Views.OrderShow = Backbone.CompositeView.extend({
     this.model.set({order_status_id: 2});
     this.model.save({}, {
       success: function () {
-        Backbone.history.navigate("#", { trigger: true });
+        CURRENT_ORDER.current_order = new EtsyClone.Models.Order();
+        Backbone.history.navigate("#/view_my_purchases", { trigger: true });
       }
     });
   },

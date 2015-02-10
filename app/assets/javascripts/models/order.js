@@ -26,7 +26,7 @@ EtsyClone.Models.Order = Backbone.Model.extend({
 
   parse: function (payload) {
     if (payload.order_items) {
-      this.order_items().set(payload.order_items, { parse: true });
+      this.order_items().set(payload.order_items);
       delete payload.order_items;
     }
 

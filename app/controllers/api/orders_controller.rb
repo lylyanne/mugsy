@@ -5,8 +5,8 @@ class Api::OrdersController < ApplicationController
   CACELLED = 4
 
   def create
-    current_order.update_attributes(order_params)
-    @order = current_order
+    @order = Order.new(order_params)
+    session[:order_id] = @order.id
     render "show"
   end
 

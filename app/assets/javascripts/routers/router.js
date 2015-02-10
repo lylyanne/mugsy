@@ -8,7 +8,6 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
     this.$nav.html(mgmt.render().$el);
     var cart = new EtsyClone.Views.Cart();
     this.$cart.html(cart.render().$el);
-    // create navbar on startup
     // CURRENT_ORDER.current_order.save();
   },
 
@@ -96,9 +95,9 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
 
   cartShow: function () {
     CURRENT_ORDER.current_order.fetch();
-
     var cartShowView = new EtsyClone.Views.OrderShow({
-      model: CURRENT_ORDER.current_order
+      model: CURRENT_ORDER.current_order,
+      $cart: this.$cart
     });
 
     this._swapView(cartShowView);

@@ -3,7 +3,7 @@ EtsyClone.Views.Cart = Backbone.View.extend({
   tagName: 'li',
 
   initialize: function () {
-    CURRENT_ORDER.current_order.fetch();
+    // CURRENT_ORDER.current_order.fetch();
     this.listenTo(CURRENT_ORDER.current_order, "sync", this.render);
     this.listenTo(CURRENT_ORDER.current_order.order_items(), "add remove", this.render);
   },
