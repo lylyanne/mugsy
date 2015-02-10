@@ -79,3 +79,8 @@ a.nav-link {
 a.nav-link:hover {
   background-color: #f5f5f5;
 }
+
+.cart-text {
+  text-decoration: none;
+  margin-top: 8px;
+}

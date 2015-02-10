@@ -40,7 +40,7 @@
         <li><%= link_to "Sign In", new_session_url %></li>
         <li><%= link_to "Sign Up", new_user_url %></li>
         <% end %>
-        <li class="cart-text"><%= render 'layouts/cart_text' %></li>
+        <li class="cart-text"></li>
       </ul>
     </div>
   </div>
@@ -52,7 +52,7 @@
 <script>
   CURRENT_USER = JSON.parse('<%= current_user.to_json(include: {:shop => {:include => :products}}, except: [:password_digest, :session_token]).html_safe %>');
   CURRENT_USER.shop = new EtsyClone.Models.Shop(CURRENT_USER.shop, {parse: true});
-  CURRENT_ORDER = JSON.parse('<%= current_order.to_json(include: [:order_items]).html_safe %>');
+  CURRENT_ORDER = JSON.parse('<%= current_order.to_json(include: :order_items).html_safe %>');
   CURRENT_ORDER.current_order = new EtsyClone.Models.Order(CURRENT_ORDER, {parse: true});
   $(EtsyClone.initialize);
 </script>

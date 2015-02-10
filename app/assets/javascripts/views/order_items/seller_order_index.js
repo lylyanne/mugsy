@@ -3,6 +3,7 @@ EtsyClone.Views.SellerOrderItemIndex = Backbone.CompositeView.extend({
 
   initialize: function (options) {
     this.$nav = options.$nav;
+    this.$cart = options.$cart;
     this.listenTo(this.collection, "sync", this.render);
     //this.listenTo(this.collection, 'add', this.addOrderItem);
   },
@@ -28,6 +29,8 @@ EtsyClone.Views.SellerOrderItemIndex = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     var mgmt = new EtsyClone.Views.Navbar();
     this.$nav.html(mgmt.render().$el);
+    var cart = new EtsyClone.Views.Cart();
+    this.$cart.html(cart.render().$el);
     this.renderOrderedItems();
     return this;
   }

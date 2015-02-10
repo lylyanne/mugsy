@@ -3,6 +3,7 @@ EtsyClone.Views.ProductForm = Backbone.View.extend({
 
   initialize: function (options) {
     this.$nav = options.$nav;
+    this.$cart = options.$cart;
     this._imageUrl = "";
     this._params = Object.create(null);
     this._params["product"] = {
@@ -22,6 +23,8 @@ EtsyClone.Views.ProductForm = Backbone.View.extend({
     this.$el.html(renderedContent);
     var mgmt = new EtsyClone.Views.Navbar();
     this.$nav.html(mgmt.render().$el);
+    var cart = new EtsyClone.Views.Cart();
+    this.$cart.html(cart.render().$el);
     return this;
   },
 
