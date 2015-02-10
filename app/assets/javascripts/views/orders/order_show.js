@@ -27,7 +27,13 @@ EtsyClone.Views.OrderShow = Backbone.CompositeView.extend({
   },
 
   checkout: function () {
-
+    event.preventDefault();
+    this.model.set({order_status_id: 2});
+    this.model.save({}, {
+      success: function () {
+        Backbone.history.navigate("#", { trigger: true });
+      }
+    });
   },
 
   render: function () {

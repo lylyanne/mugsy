@@ -1,6 +1,6 @@
 EtsyClone.Collections.Orders = Backbone.Collection.extend({
   model: EtsyClone.Models.Order,
-  url: 'api/cart',
+  url: 'api/orders',
 
   getOrFetch: function (id) {
     var order = this.get(id);

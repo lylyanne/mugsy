@@ -58,6 +58,16 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def sold_orders
+    products = current_user.shop.products.ids
+    all_order_items = OrderItem.all
+    orders = []
+    all_order_items.each do |order_item|
+      orders << order_item.order if products.include?(order_item.product_id)
+    end
+    orders.uniq!
+  end
+  
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)

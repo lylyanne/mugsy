@@ -11,10 +11,9 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
     'shops/:id/edit' : 'shopEdit',
     'seller_products/new' : 'productNew',
     'seller_products/all' : 'productAll',
-    // 'seller_products/:id' : 'productShow',
     'products/:id/edit' : 'productEdit',
-    'cart' : 'cartShow'
-    // 'buyer_orders' : 'buyerOrders'
+    'cart' : 'cartShow',
+    'view_my_purchases' : 'buyerOrders'
   },
 
   index: function () {
@@ -77,12 +76,6 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
     this._swapView(allProductView);
   },
 
-  // productShow: function (id) {
-  //   var product = CURRENT_USER.shop.products().getOrFetch(id);
-  //   var productView = new EtsyClone.Views.ProductShow({ model: product });
-  //   this._swapView(productView);
-  // },
-  //
   productEdit: function (id) {
     var product = CURRENT_USER.shop.products().getOrFetch(id);
     var editView = new EtsyClone.Views.ProductForm({
@@ -102,14 +95,15 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
     this._swapView(cartShowView);
   },
 
-  // buyerOrders: function() {
-  //   var orders = new EtsyClone.Collections.Orders();
-  //   orders.fetch();
-  //   var buyerView = new EtsyClone.Views.BuyerOrder({
-  //     collection: orders
-  //   });
-  //   this._swapView(buyerView);
-  // },
+  buyerOrders: function() {
+    var order_items = new EtsyClone.Collections.OrderItems();
+    order_items.fetch({data: {role: "buyer"} } );
+    var buyerView = new EtsyClone.Views.BuyerOrderItemIndex({
+      collection: order_items
+    });
+
+    this._swapView(buyerView);
+  },
 
   _swapView: function (view) {
     this._currentView && this._currentView.remove();

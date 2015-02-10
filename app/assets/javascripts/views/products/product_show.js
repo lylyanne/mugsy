@@ -20,7 +20,7 @@ EtsyClone.Views.ProductShow = Backbone.CompositeView.extend({
 
     var orderFormView = new EtsyClone.Views.OrderItemForm( {
       model: new_item,
-      collection: this.order_item_collection,
+      collection: CURRENT_ORDER.current_order.order_items(),
       product: this.model
     } );
 

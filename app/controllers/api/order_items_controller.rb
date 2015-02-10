@@ -5,7 +5,7 @@ class Api::OrderItemsController < ApplicationController
     @order_item.buyer_id = current_user.id
     @order.save
     session[:order_id] = @order.id
-    render :json => @order_item
+    render "show"
   end
 
   def update
@@ -20,23 +20,37 @@ class Api::OrderItemsController < ApplicationController
     @order = current_order
     @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
-
-    #update the order total
-    @order.subtotal
-    @order.tax
-    @order.total
-
     @order_items = @order.order_items
     render "show"
   end
 
+  def show
+    @order_item = OrderItem.find(params[:id])
+    render "show"
+  end
+
   def index
-    @order = current_order
-    if @order
-      @order_items = @order.order_items
+    # @order = current_order
+    # if @order
+    #   @order_items = @order.order_items
+    #   render :json => @order_items
+    # else
+    #   render :json => {}
+    # end
+
+    if params[:role] == "seller"
+      #@orders = current_user.sold_orders
+    elsif params[:role] == "buyer"
+      @order_items = current_user.ordered_items
       render :json => @order_items
     else
-      render :json => {}
+      @order = current_order
+      if @order
+        @order_items = @order.order_items
+        render :json => @order_items
+      else
+        render :json => {}
+      end
     end
   end
 

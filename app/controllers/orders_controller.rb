@@ -33,4 +33,12 @@ class OrdersController < ApplicationController
     @order_items = current_user.ordered_items
     render "buyer_orders"
   end
+
+  # def index
+  #   if params[:role] == "seller"
+  #     @orders = current_user.sold_orders
+  #   else
+  #     @orders = current_user.ordered_items
+  #   end
+  # end
 end
