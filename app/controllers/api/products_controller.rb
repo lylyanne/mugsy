@@ -36,7 +36,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all.includes(:shop)
+    @products = Product.all.order('shop_id').includes(:shop)
     render "index"
   end
 
