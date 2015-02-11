@@ -11,7 +11,24 @@
       <div class="well">
 
         <div class="row">
-          <div class="order"></div>
+          <div class="col-xs-8">
+            <% order.order_items().each(function (order_item) { %>
+              <h5>
+                (<%= order_item.escape("quantity") %>)
+                <%= order_item.escape("product_name") %>
+              </h5>
+            <% }) %>
+            <br>
+            <h5>Ordered at <%= order.escape("ordered_at") %></h5>
+          </div>
+
+          <div class="col-xs-4 text-center">
+            <h5>Buyer: </h5>
+            <h5 style="color: green">
+              <%= order.order_items().models[0].escape("buyer_name") %>
+            </h5>
+            <h5><%= order.get("order_status") %></h5>
+          </div>
 
         </div>
       </div>
