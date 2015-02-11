@@ -10,7 +10,7 @@ EtsyClone.Views.OrderShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click button.checkout" : "checkout"
+    "submit form" : "checkout"
   },
 
   addCartOrderItem: function(order_item) {
@@ -27,14 +27,18 @@ EtsyClone.Views.OrderShow = Backbone.CompositeView.extend({
     this.model.order_items().each(this.addCartOrderItem.bind(this));
   },
 
-  checkout: function () {
+  checkout: function (event) {
     event.preventDefault();
+    var $form = $(event.currentTarget);
+
+    var params = $form.serializeJSON();
+    this.model.set(params);
     this.model.set({order_status_id: 2});
     this.model.save({}, {
       success: function () {
         CURRENT_ORDER.current_order = new EtsyClone.Models.Order();
         Backbone.history.navigate("#/view_my_purchases", { trigger: true });
-      }
+      }.bind(this)
     });
   },
 

@@ -15,13 +15,17 @@ EtsyClone.Models.Order = Backbone.Model.extend({
     return subtotal
   },
 
+  shipping: function () {
+    return 5.00;
+  },
+
   tax: function () {
     var tax = this.subtotal() * 0.0925;
     return tax;
   },
 
   total: function () {
-    return this.subtotal() + parseFloat(this.get('shipping')) + this.tax();
+    return this.subtotal() + this.shipping() + this.tax();
   },
 
   parse: function (payload) {
