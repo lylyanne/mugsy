@@ -8,5 +8,6 @@ json.order do
   json.extract!(order_item.order, :id)
 
   json.order_status Order::ORDER_STATUSES[order_item.order.order_status_id]
-  json.ordered_at order_item.order.created_at
+
+  json.ordered_at order_item.order.created_at.strftime("%F %T %p")  
 end
