@@ -22,8 +22,8 @@ class Api::OrdersController < ApplicationController
   end
 
   def update
-    @order = current_order
-    @order.update_attributes({order_status_id: PLACED})
+    @order = Order.find(params[:id])
+    @order.update_attributes(order_params)
     session[:order_id] = nil
     render :json => @order
   end

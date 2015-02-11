@@ -27,7 +27,19 @@
             <h5 style="color: green">
               <%= order.order_items().models[0].escape("buyer_name") %>
             </h5>
-            <h5><%= order.get("order_status") %></h5>
+            <% if (order.escape("order_status") === "Placed") { %>
+              <form>
+                <input type="hidden" name='order[order_status_id]'
+                id='order_order_status_id'
+                value = 3 >
+                <button
+                  data-order-id="<%= order.id %>"
+                  class="btn btn-primary shipped">Mark as shipped
+                </button>
+              </form>
+            <% } else { %>
+              <h5><%= order.escape("order_status") %></h5>
+            <% } %>
           </div>
 
         </div>

@@ -1,7 +1,7 @@
 @orders ||= nil
 unless @orders.nil?
   json.array!(@orders) do |order|
-    json.(order, :id, :created_at, :updated_at)
+    json.(order, :id, :order_status_id, :created_at, :updated_at)
 
     json.order_status Order::ORDER_STATUSES[order.order_status_id]
     json.ordered_at order.created_at.strftime("%F %T %p")
