@@ -3,12 +3,14 @@ EtsyClone.Models.OrderItem = Backbone.Model.extend({
 
   order: function () {
     //this._order = this._order ||
-    if (this.get('order_id')) {
-      return EtsyClone.Collections.orders.getOrFetch(this.get('order_id'));
-    } else {
-      return CURRENT_ORDER.current_order;
+    if (!this._order) {
+      // if (typeof this.get('order_id') !== 'undefined') {
+      this._order =  new EtsyClone.Models.Order({ id: this.get('order_id')});
+      // } else {
+      //   this._order = CURRENT_ORDER.current_order;
+      // }
     }
-    //return this._order;
+    return this._order;
   },
 
   product: function () {

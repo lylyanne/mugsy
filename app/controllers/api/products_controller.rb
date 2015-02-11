@@ -36,7 +36,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @products = Product.all.includes(:shop)
     render "index"
   end
 

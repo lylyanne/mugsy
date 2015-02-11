@@ -18,13 +18,13 @@ EtsyClone.Views.ProductShow = Backbone.CompositeView.extend({
   renderOrderItemForm: function () {
     var new_item = new EtsyClone.Models.OrderItem();
 
-    var orderFormView = new EtsyClone.Views.OrderItemForm( {
+    var orderFormView = new EtsyClone.Views.OrderItemForm({
       model: new_item,
       collection: CURRENT_ORDER.current_order.order_items(),
       product: this.model
-    } );
+    });
 
-    this.addSubview('.col-xs-5', orderFormView);
+    this.addSubview('.order-form', orderFormView);
   },
 
   renderLink: function () {
@@ -32,7 +32,7 @@ EtsyClone.Views.ProductShow = Backbone.CompositeView.extend({
       product: this.model
     });
 
-    this.addSubview('.col-xs-5', linkView);
+    this.addSubview('.order-form', linkView);
   },
 
   render: function () {

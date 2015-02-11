@@ -18,6 +18,13 @@ class Order < ActiveRecord::Base
 
   before_create :set_order_status
 
+  ORDER_STATUSES = {
+    1 => "In Cart",
+    2 => "Placed",
+    3 => "Shipped",
+    4 => "Canceled"
+  }
+
   def subtotal
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end

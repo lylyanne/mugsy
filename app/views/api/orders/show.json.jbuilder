@@ -1,5 +1,7 @@
-json.(@order, :id, :subtotal, :tax, :shipping, :total, :order_status_id,
+json.(@order, :id, :subtotal, :tax, :shipping, :total,
               :created_at, :updated_at)
+
+json.order_status Order::ORDER_STATUSES[@order.order_status_id]
 
 @order_items ||= nil
 unless @order_items.nil?

@@ -37,10 +37,10 @@ class Api::OrderItemsController < ApplicationController
       @all_order_items.each do |order_item|
         @order_items << order_item if @products.include?(order_item.product_id)
       end
-      render :json => @order_items
+      render "index"
     elsif params[:role] == "buyer"
       @order_items = current_user.ordered_items
-      render :json => @order_items
+      render "index"
     else
       @order = current_order
       if @order
