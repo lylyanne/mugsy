@@ -1,12 +1,13 @@
-<div class="col-xs-5">
+
   <h4 class="text-right">Unit Price:
-    <span style="color: green">$<%= product.escape("price") %></span>
+    <span style="color: green">$<%= parseFloat(product.escape("price")).toFixed(2) %>
+    </span>
   </h4>
   <div class="input-group">
     <form>
-      <input type="number" class="form-control" name='order_item[quantity]'
+      <input type="number" class="form-control quantity" name='order_item[quantity]'
             id='order_item_quantity'
-            min="1" max="12" value="1" >
+            min="1" max="12" value="1">
       <div class="input-group-btn">
         <input type="hidden" name='order_item[product_id]'
                 id='order_item_product_id'
@@ -15,4 +16,3 @@
       </div>
     </form>
   </div>
-</div>

@@ -1,6 +1,6 @@
 EtsyClone.Views.OrderItemForm = Backbone.View.extend({
   template: JST["order_items/form"],
-
+  
   initialize: function (options) {
     this.product = options.product
     this.collection = CURRENT_ORDER.current_order.order_items()
