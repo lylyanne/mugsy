@@ -16,7 +16,6 @@ EtsyClone.Views.SellerOrderIndex = Backbone.View.extend({
     var that = this;
     var order = this.collection.get(orderId);
     order.set({order_status_id: 3});
-    debugger
     order.save({}, {
       success: function () {
         that.collection.add(order, { merge: true });

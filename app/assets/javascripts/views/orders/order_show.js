@@ -36,9 +36,10 @@ EtsyClone.Views.OrderShow = Backbone.CompositeView.extend({
     this.model.set({order_status_id: 2});
     this.model.save({}, {
       success: function () {
-        CURRENT_ORDER.current_order = new EtsyClone.Models.Order();
+        CURRENT_ORDER.current_order.clear();
+        CURRENT_ORDER.current_order.order_items().reset();
         Backbone.history.navigate("#/view_my_purchases", { trigger: true });
-      }.bind(this)
+      }
     });
   },
 

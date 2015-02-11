@@ -8,7 +8,7 @@ EtsyClone.Models.Order = Backbone.Model.extend({
   },
 
   subtotal: function () {
-    var subtotal = 0
+    var subtotal = 0;
     this.order_items().each(function (item) {
       subtotal += item.get("quantity") * parseFloat(item.get('unit_price'));
     })
