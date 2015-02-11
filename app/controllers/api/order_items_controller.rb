@@ -30,22 +30,22 @@ class Api::OrderItemsController < ApplicationController
   end
 
   def index
-    if params[:role] == "seller"
-      @products = current_user.shop.products.ids
-      @all_order_items = OrderItem.all.includes(:buyer).includes(:product)
-      @order_items = []
-      @all_order_items.each do |order_item|
-        @order_items << order_item if @products.include?(order_item.product_id)
-      end
-      render "index"
-    elsif params[:role] == "buyer"
+    if params[:role] == "buyer"
       @order_items = OrderItem.all.where(buyer_id: current_user.id).includes(:buyer).includes(:product)
       render "index"
+    # elsif params[:role] == "seller"
+    #   @products = current_user.shop.products.ids
+    #   @all_order_items = OrderItem.all.includes(:buyer).includes(:product)
+    #   @order_items = []
+    #   @all_order_items.each do |order_item|
+    #     @order_items << order_item if @products.include?(order_item.product_id)
+    #   end
+    #   render "index"
     else
       @order = current_order
       if @order
         @order_items = @order.order_items
-        render :json => @order_items
+        render "index"
       else
         render :json => {}
       end

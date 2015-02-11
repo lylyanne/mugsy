@@ -15,6 +15,7 @@
 class Order < ActiveRecord::Base
   belongs_to :order_status
   has_many :order_items
+  has_many :products, through: :order_items, source: :product
 
   before_create :set_order_status
 

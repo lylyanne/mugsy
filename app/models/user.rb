@@ -37,6 +37,10 @@ class User < ActiveRecord::Base
     primary_key: :id
   )
 
+  has_many :products, through: :shop, source: :products
+  has_many :order_items, through: :products, source: :order_item
+  has_many :orders, through: :order_items, source: :order
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     return nil unless user && user.valid_password?(password)
@@ -67,7 +71,7 @@ class User < ActiveRecord::Base
     end
     orders.uniq!
   end
-  
+
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)

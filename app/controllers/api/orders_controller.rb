@@ -2,7 +2,7 @@ class Api::OrdersController < ApplicationController
   IN_CART = 1
   PLACED = 2
   SHIPPED = 3
-  CACELLED = 4
+  CANCELLED = 4
 
   def create
     # @order = Order.new(order_params)
@@ -12,7 +12,7 @@ class Api::OrdersController < ApplicationController
     @order.order_status_id = PLACED
     @order.update_attributes(order_params)
     session[:order_id] = nil
-    render :json => @order
+    render "show"
   end
 
   def show
@@ -29,8 +29,19 @@ class Api::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
-    render "index"
+    if params[:role] == "seller"
+      @products = current_user.products.ids
+      @all_order_items = OrderItem.all.includes(:buyer).includes(:product)
+      @orders = []
+      @all_order_items.each do |order_item|
+        @orders << order_item.order if @products.include?(order_item.product_id)
+      end
+      @orders.uniq!
+      render "seller_index"
+    else
+      @orders = Order.all
+      render "index"
+    end
   end
 
   private

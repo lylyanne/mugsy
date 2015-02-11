@@ -95,14 +95,23 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
   },
 
   sellerOrders: function() {
-    var order_items = new EtsyClone.Collections.OrderItems();
-    order_items.fetch({data: {role: "seller"} } );
+    var orders = new EtsyClone.Collections.Orders();
+    orders.fetch({data: {role: "seller"} } );
 
-    var buyerView = new EtsyClone.Views.SellerOrderItemIndex({
-      collection: order_items
+    var sellerView = new EtsyClone.Views.SellerOrderIndex({
+      collection: orders
     });
 
-    this._swapView(buyerView);
+    this._swapView(sellerView);
+
+    // var order_items = new EtsyClone.Collections.OrderItems();
+    // order_items.fetch({data: {role: "seller"} } );
+    //
+    // var sellerView = new EtsyClone.Views.SellerOrderItemIndex({
+    //   collection: order_items
+    // });
+    //
+    // this._swapView(sellerView);
   },
 
   buyerOrders: function() {
