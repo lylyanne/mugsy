@@ -9,7 +9,6 @@ EtsyClone.Views.Cart = Backbone.View.extend({
   },
 
   render: function () {
-    debugger
     var renderedContent = this.template({
       currentOrder: CURRENT_ORDER.current_order
     });

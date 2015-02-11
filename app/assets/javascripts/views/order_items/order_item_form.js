@@ -19,7 +19,6 @@ EtsyClone.Views.OrderItemForm = Backbone.View.extend({
     this.model.set(params);
     this.model.save({}, {
       success: function () {
-        debugger
         that.collection.add(that.model, { merge: true });
         Backbone.history.navigate("#/cart", { trigger: true });
       }

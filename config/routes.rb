@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     resources :products
     resources :order_items, except: [:new, :edit]
     resources :orders, only: [:show, :update, :index, :create]
-    get '/buyer_orders', to: 'orders#buyer_orders', as: 'buyer_orders'
   end
 
   resources :shops, only: [:show]

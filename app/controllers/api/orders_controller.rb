@@ -5,9 +5,14 @@ class Api::OrdersController < ApplicationController
   CACELLED = 4
 
   def create
-    @order = Order.new(order_params)
-    session[:order_id] = @order.id
-    render "show"
+    # @order = Order.new(order_params)
+    # session[:order_id] = @order.id
+    # render "show"
+    @order = current_order
+    @order.order_status_id = PLACED
+    @order.update_attributes(order_params)
+    session[:order_id] = nil
+    render :json => @order
   end
 
   def show
@@ -30,6 +35,6 @@ class Api::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:subtotal, :tax, :shipping, :total)
+    params.require(:order).permit(:subtotal, :tax, :shipping, :total, :order_status_id)
   end
 end

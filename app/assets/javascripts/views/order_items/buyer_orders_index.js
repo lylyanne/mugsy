@@ -21,7 +21,6 @@ EtsyClone.Views.BuyerOrderItemIndex = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    debugger
     var renderedContent = this.template({
       order_items: this.collection
     });

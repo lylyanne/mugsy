@@ -1,8 +1,8 @@
-class Api::CartsController < ApplicationController  
+class Api::CartsController < ApplicationController
   IN_CART = 1
   PLACED = 2
   SHIPPED = 3
-  CACELLED = 4
+  CANCELLED = 4
 
   def show
     @order_items = current_order.order_items
