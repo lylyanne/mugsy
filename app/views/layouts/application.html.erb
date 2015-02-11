@@ -40,10 +40,8 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Your Shop<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <% if current_user.shop %>
-              <li><a href="#/shops/<%= current_user.shop.id %>">View shop</a></li>
+              <li><a href="#/shops/<%= current_user.shop.id %>">View my shop and products</a></li>
               <li><a href="#/shops/<%= current_user.shop.id %>/edit">Edit shop</a></li>
-              <li class="divider"></li>
-              <li><a href="#/seller_products/all">View products</a></li>
               <li><a href="#/seller_products/new">Add product</a></li>
               <li class="divider"></li>
               <li><a href="#/view_my_sales">View my sales</a></li>

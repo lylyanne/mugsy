@@ -1,10 +1,8 @@
 <% if (currentUser.shop.id) { %>
   <li >
-    <a class="nav-link" href="#/shops/<%= currentUser.shop.id %>">View shop</a>
+    <a class="nav-link" href="#/shops/<%= currentUser.shop.id %>">View my shop and products</a>
   </li>
   <li><a class="nav-link" href="#/shops/<%= currentUser.shop.id %>/edit">Edit shop</a></li>
-  <li class="divider"></li>
-  <li><a class="nav-link" href="#/seller_products/all">View products</a></li>
   <li><a class="nav-link" href="#/seller_products/new">Add product</a></li>
   <li class="divider"></li>
   <li><a class="nav-link" href="#/view_my_sales">View my sales</a></li>
