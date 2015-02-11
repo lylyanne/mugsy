@@ -8,7 +8,7 @@
   <% } else { %>
     <div class="order-item"></div>
 
-  <div class="col-xs-12 text-right">
+  <div class="col-xs-4 col-xs-offset-7 text-right">
     <h4 class="text-right">Subtotal: <span style="color: green">$<%= order.subtotal().toFixed(2) %></span></h4>
     <h4 class="text-right">Shipping: <span style="color: green">$<%= order.shipping().toFixed(2) %></span></h4>
     <h4 class="text-right">Tax: <span style="color: green">$<%= order.tax().toFixed(2) %></span></h4>

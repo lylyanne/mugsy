@@ -88,3 +88,13 @@ a.nav-link:hover {
 input.quantity {
   width: 80px !important;
 }
+
+.add-to-cart {
+  margin-left: 50px;
+}
+
+.edit-link {
+  font-size: 24px;
+  text-align: right;
+  margin-top: 10px;
+}
