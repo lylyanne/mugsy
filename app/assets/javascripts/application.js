@@ -16,6 +16,7 @@
 //= require underscore
 //= require backbone
 //= require etsy_clone
+//= require sessions
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models

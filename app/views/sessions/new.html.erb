@@ -3,7 +3,7 @@
   <div class="col-md-6 col-md-offset-3">
     <h2>Sign In</h2>
 
-    <%= form_for(:session, url: session_path) do |f| %>
+    <%= form_for(:session, url: session_path,  html: { class: 'login-form' }) do |f| %>
     <%= render 'layouts/errors' %>
 
     <%= f.label :email %>
@@ -11,8 +11,10 @@
 
     <%= f.label :password %>
     <%= f.password_field :password, class: 'form-control' %>
-
+    <br>
     <%= f.submit "Sign In", class: "btn btn-primary" %>
+    <%= f.submit "Demo User", class: "btn btn-primary demo-user-login" %>
+
     <% end %>
   </div>
 </div>
