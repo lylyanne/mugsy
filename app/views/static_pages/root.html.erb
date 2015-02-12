@@ -50,9 +50,23 @@
   <div id="shop-navigation"></div>
 </div>
 <script>
-  CURRENT_USER = JSON.parse('<%= current_user.to_json(include: {:shop => {:include => :products}}, except: [:password_digest, :session_token]).html_safe %>');
-  CURRENT_USER.shop = new EtsyClone.Models.Shop(CURRENT_USER.shop, {parse: true});
-  CURRENT_ORDER = JSON.parse('<%= current_order.to_json(include: :order_items).html_safe %>');
-  CURRENT_ORDER.current_order = new EtsyClone.Models.Order(CURRENT_ORDER, {parse: true});
-  $(EtsyClone.initialize);
+  // CURRENT_USER = JSON.parse('<%= current_user.to_json(include: {:shop => {:include => :products}}, except: [:password_digest, :session_token]).html_safe %>');
+  // CURRENT_USER.shop = new EtsyClone.Models.Shop(CURRENT_USER.shop, {parse: true});
+  // CURRENT_ORDER = JSON.parse('<%= current_order.to_json(include: :order_items).html_safe %>');
+  // CURRENT_ORDER.current_order = new EtsyClone.Models.Order(CURRENT_ORDER, {parse: true});
+
+  $(function(){
+    $.ajax({
+      url: '/current_user_data',
+      success: function(data){
+        CURRENT_USER = data.current_user;
+        CURRENT_USER.shop = new EtsyClone.Models.Shop(data.shop, {parse: true});
+        CURRENT_ORDER = data.current_order;
+        CURRENT_ORDER.current_order = new EtsyClone.Models.Order(CURRENT_ORDER, {parse: true});
+        EtsyClone.initialize();
+
+      }
+    })
+  });
+
 </script>

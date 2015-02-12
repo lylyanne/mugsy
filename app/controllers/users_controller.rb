@@ -3,6 +3,13 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def current_user_data
+    # data = {}
+    # data[:current_user] = current_user(include: {:shop => {:include => :products}}, except: [:password_digest, :session_token])
+    # render json: current_user
+    render :current_user_data
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save

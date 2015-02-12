@@ -57,8 +57,8 @@ price: 15.00,
 category: "coffee mug",
 product_image: "https://www.filepicker.io/api/file/0mNImnMnRySNTOBEXSTF"
 Product.create! id: 7, shop_id: 1, name: "Chain of command travel mug",
-description: "You know what the chain of command is? It's the chain
-I go get and beat you with until you understand who's in command here",
+description: "You know what the chain of command is? It is the chain I go get and beat you with until you understand
+who is in command here",
 price: 22.00,
 category: "travel mug",
 product_image: "https://www.filepicker.io/api/file/JGUiqapzTnOingdxutfr"
