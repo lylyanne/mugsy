@@ -1,20 +1,20 @@
 <%= render "layouts/navbar" %>
 
-<h2>Sign Up</h2>
+<div class="row">
+  <div class="col-md-2 col-md-offset-5">
+    <h2>Sign Up</h2>
 
-<%= render "layouts/errors" %>
+    <%= form_for(:user, url: users_path) do |f| %>
+    <%= render 'layouts/errors' %>
 
-<form action="<%= users_url %>" method="post">
-  <%= auth_token_input %>
-  <label>
-    Email
-    <input type="text" name="user[email]" value="">
-  </label>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control' %>
 
-  <label>
-    Password
-    <input type="password" name="user[password]" value="">
-  </label>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+    <br>
 
-  <input type="submit" value="Sign Up">
-</form>
+    <%= f.submit "Sign Up", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
