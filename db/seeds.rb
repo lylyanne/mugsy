@@ -16,7 +16,7 @@ User.create! id: 3, email: "user3@user.com", password: "password"
 User.create! id: 4, email: "user4@user.com", password: "password"
 
 Shop.delete_all
-Shop.create! id: 1, owner_id: 1, name: "MooDesign Shop",
+Shop.create! id: 1, owner_id: 1, name: "Animal Design Shop",
 shop_image: "https://www.filepicker.io/api/file/4MeShggeTiaE87t3LqOb"
 Shop.create! id: 2, owner_id: 2, name: "Full Metal Alchemist Shop",
 shop_image: "https://www.filepicker.io/api/file/G6xUeFbtTUua33sslteT"
@@ -46,6 +46,22 @@ description: "Moo-tiful coffee mug for the milk lovers in your family",
 price: 15.00,
 category: "coffee mug",
 product_image: "https://www.filepicker.io/api/file/4LIYO7cS3Ot6VWZ6VTYT"
+Product.create! id: 5, shop_id: 1, name: "Good morning handsome",
+description: "Perfect gift for boyfriend, husband, brother",
+price: 15.00,
+category: "coffee mug",
+product_image: "https://www.filepicker.io/api/file/0mNImnMnRySNTOBEXSTF"
+Product.create! id: 6, shop_id: 1, name: "Witch wife mug",
+description: "I am not a witch, I am your wife",
+price: 15.00,
+category: "coffee mug",
+product_image: "https://www.filepicker.io/api/file/0mNImnMnRySNTOBEXSTF"
+Product.create! id: 7, shop_id: 1, name: "Chain of command travel mug",
+description: "You know what the chain of command is? It's the chain
+I go get and beat you with until you understand who's in command here",
+price: 22.00,
+category: "travel mug",
+product_image: "https://www.filepicker.io/api/file/JGUiqapzTnOingdxutfr"
 
 OrderStatus.delete_all
 OrderStatus.create! id: 1, name: "In Cart"

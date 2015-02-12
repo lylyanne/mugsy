@@ -4,7 +4,7 @@ $( document ).ready(function() {
   function fillInDemoUser (event) {
     event.preventDefault();
 
-    $('#session_email').val('user@user.com');
+    $('#session_email').val('user4@user.com');
     $('#session_password').val('password');
     var $form = $('.login-form');
     $form.submit();
