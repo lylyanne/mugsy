@@ -89,12 +89,25 @@ input.quantity {
   width: 80px !important;
 }
 
-.add-to-cart {
-  margin-left: 50px;
-}
-
 .edit-link {
   font-size: 24px;
   text-align: right;
   margin-top: 10px;
+}
+
+.product-well {
+  float: left;
+  width: 40%;
+  margin: 15px;
+  height: 250px;
+}
+
+.one-item .product-well {
+  width: 100%;
+  margin: 0;
+  height: 200px;
+}
+
+.one-item .product-well .add-to-cart {
+  margin-left: 50px;
 }
