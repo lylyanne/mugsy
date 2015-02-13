@@ -4,10 +4,8 @@ class Api::OrdersController < ApplicationController
   SHIPPED = 3
   CANCELLED = 4
 
+  #for checking out order
   def create
-    # @order = Order.new(order_params)
-    # session[:order_id] = @order.id
-    # render "show"
     @order = current_order
     @order.order_status_id = PLACED
     @order.update_attributes(order_params)
@@ -21,10 +19,10 @@ class Api::OrdersController < ApplicationController
     render "show"
   end
 
+  #for marking item as shipped or cancelled
   def update
     @order = Order.find(params[:id])
     @order.update_attributes(order_params)
-    session[:order_id] = nil
     render :json => @order
   end
 
