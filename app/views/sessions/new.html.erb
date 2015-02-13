@@ -1,20 +1,24 @@
-<%= render "layouts/navbar" %>
-<div class="row">
-  <div class="col-md-2 col-md-offset-5">
-    <h2>Sign In</h2>
+<div id="bg">
+  <%= render "layouts/navbar" %>
+  <div class="row">
+    <div class="col-md-2 col-md-offset-5 signin-signup">
+        <h2>Sign In</h2>
 
-    <%= form_for(:session, url: session_path,  html: { class: 'login-form' }) do |f| %>
-    <%= render 'layouts/errors' %>
+        <%= form_for(:session, url: session_path,  html: { class: 'login-form' }) do |f| %>
+        <%= render 'layouts/errors' %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control' %>
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
-    <br>
-    <%= f.submit "Sign In", class: "btn btn-primary" %>
-    <%= f.submit "Demo User", class: "btn btn-primary demo-user-login" %>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+        <br>
 
-    <% end %>
+        <%= f.submit "Sign In", class: "btn btn-primary" %>
+        <%= f.submit "Demo User", class: "btn btn-primary demo-user-login" %>
+
+        <% end %>
+        <br>
+    </div>
   </div>
 </div>
