@@ -1,14 +1,14 @@
 EtsyClone.Routers.Router = Backbone.Router.extend({
-  initialize: function(shops, $rootEl, $nav, $cart) {
+  initialize: function(shops, $rootEl, $nav, $cart, $search) {
     this.shops = shops;
     this.$rootEl = $rootEl;
-    this.$nav = $nav;
     this.$cart = $cart;
     var mgmt = new EtsyClone.Views.Navbar();
-    this.$nav.html(mgmt.render().$el);
+    $nav.html(mgmt.render().$el);
     var cart = new EtsyClone.Views.Cart();
-    this.$cart.html(cart.render().$el);
-    // CURRENT_ORDER.current_order.save();
+    $cart.html(cart.render().$el);
+    var search = new EtsyClone.Views.Search();
+    $search.html(search.render().$el);
   },
 
   routes: {
@@ -20,7 +20,8 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
     'products/:id/edit' : 'productEdit',
     'cart' : 'cartShow',
     'view_my_sales' : 'sellerOrders',
-    'view_my_purchases' : 'buyerOrders'
+    'view_my_purchases' : 'buyerOrders',
+    'search/:query' : "searchResult"
   },
 
   index: function () {
@@ -66,7 +67,6 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
 
   productNew: function () {
     var product = new EtsyClone.Models.Product();
-
     var newView = new EtsyClone.Views.ProductForm({
       model: product,
       collection:  CURRENT_USER.shop.products()
@@ -114,6 +114,25 @@ EtsyClone.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(buyerView);
+  },
+
+  searchResult: function (query) {
+    var shops = new EtsyClone.Collections.ShopSearches([], {
+      query: query
+    });
+    shops.fetch();
+
+    var products = new EtsyClone.Collections.ProductSearches([], {
+      query: query
+    });
+    products.fetch();
+
+    var view = new EtsyClone.Views.SearchResult({
+      shops: shops,
+      products: products
+    });
+
+    this._swapView(view);
   },
 
   _swapView: function (view) {

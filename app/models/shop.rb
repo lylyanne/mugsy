@@ -22,4 +22,12 @@ class Shop < ActiveRecord::Base
   )
 
   has_many :products
+
+  def self.search(query)
+    if query
+      Shop.where("LOWER(name) LIKE ?", "%#{query.downcase}%")
+    else
+      Shop.all
+    end
+  end
 end

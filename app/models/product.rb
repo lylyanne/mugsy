@@ -21,4 +21,12 @@ class Product < ActiveRecord::Base
   belongs_to :shop
 
   has_one :order_item
+
+  def self.search(query)
+    if query
+      Product.where("LOWER(name) LIKE ?", "%#{query.downcase}%")
+    else
+      Product.all
+    end
+  end
 end

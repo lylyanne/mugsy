@@ -3,9 +3,7 @@ class Api::ShopsController < ApplicationController
 
   def new
     @shop = Shop.new
-    respond_to do |format|
-      format.json { render json: @shop }
-    end
+    render json: @shop
   end
 
   def create
@@ -14,8 +12,7 @@ class Api::ShopsController < ApplicationController
     if @shop.save
       render :json => @shop
     else
-      flash.now[:errors] = @shop.errors.full_messages
-      render :new
+      render :json => @shop.errors, :status => :unprocessable_entity
     end
   end
 
@@ -31,8 +28,7 @@ class Api::ShopsController < ApplicationController
     if @shop.update(shop_params)
       render :json => @shop
     else
-      flash.now[:errors] = @shop.errors.full_messages
-      render :edit
+      render :json => @shop.errors, :status => :unprocessable_entity
     end
   end
 
@@ -43,10 +39,8 @@ class Api::ShopsController < ApplicationController
   end
 
   def index
-    @shops = Shop.all
-    respond_to do |format|
-      format.json { render json: @shops }
-    end
+    @shops = Shop.all.includes(:products).search(params[:query])
+    render "index"
   end
 
   private

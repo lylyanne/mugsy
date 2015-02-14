@@ -35,6 +35,21 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
     );
   },
 
+  // showErrors: function(response) {
+  //   _(response.responseJSON).each(function (errors, name) {
+  //     var controlGroup = this.$('#shop_' + errors.name);
+  //     controlGroup.addClass('error');
+  //     _(errors).each(function (message) {
+  //       this.$('.help-inline').text(message);
+  //     })
+  //   });
+  // },
+  //
+  // hideErrors: function () {
+  //   this.$('.control-group').removeClass('error');
+  //   this.$('.help-inline').text('');
+  // },
+
   submit: function (event) {
     event.preventDefault();
     var that = this;
@@ -44,10 +59,14 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
     this.model.set(this._params);
     this.model.save({}, {
       success: function () {
+        //that.hideErrors();
         that.collection.add(that.model, { merge: true });
         CURRENT_USER.shop = that.model;
         Backbone.history.navigate("#/shops/" + that.model.id, { trigger: true });
-      }
+      },
+      // error: function (model, response) {
+      //   that.showErrors(response);
+      // },
     });
   }
 });

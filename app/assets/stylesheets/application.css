@@ -112,10 +112,12 @@ input.quantity {
   margin-left: 50px;
 }
 
-#bg {
+#bg:before {
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
+  z-index: -1;
 
   /* Preserve aspet ratio */
   min-width: 100%;
@@ -123,6 +125,23 @@ input.quantity {
   background-image: url("https://www.filepicker.io/api/file/21IeZLkDQtC6U2MltqN9");
   background-size: cover;
   background-repeat: no-repeat;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+#bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .signin-signup {

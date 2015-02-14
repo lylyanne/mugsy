@@ -21,10 +21,9 @@ EtsyClone.Views.ProductAll = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var renderedContent = this.template();
+    var renderedContent = this.template({products: this.collection});
     this.$el.html(renderedContent);
     this.renderProducts();
     return this;
   }
-
-})
+});

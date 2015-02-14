@@ -55,7 +55,7 @@ Product.create! id: 6, shop_id: 1, name: "Witch wife mug",
 description: "I am not a witch, I am your wife",
 price: 15.00,
 category: "coffee mug",
-product_image: "https://www.filepicker.io/api/file/0mNImnMnRySNTOBEXSTF"
+product_image: "https://www.filepicker.io/api/file/8fUhMImwRnam9CpJ7ahq"
 Product.create! id: 7, shop_id: 1, name: "Chain of command travel mug",
 description: "You know what the chain of command is? It is the chain I go get and beat you with until you understand
 who is in command here",
