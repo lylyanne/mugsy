@@ -10,9 +10,4 @@ Rails.application.routes.draw do
     resources :order_items, except: [:new, :edit]
     resources :orders, only: [:show, :update, :index, :create]
   end
-
-  resources :shops, only: [:show]
-  resources :products, only: [:index]
-  resource :cart, only: [:show]
-  resources :order_items, only: [:create, :update, :destroy]
 end
