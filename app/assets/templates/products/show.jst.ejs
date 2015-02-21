@@ -1,18 +1,3 @@
-<!-- <div class="well product-well">
-  <div class="row">
-    <div class="col-xs-7">
-      <img class="shop-image" src="<%= product.escape("product_image") %>"
-      width="150" height="150">
-      <h4><%= product.escape("name") %></h4>
-      <p>by <a href="#/shops/<%= product.escape("shop_id") %>">
-        <%= product.escape("shop_name") %></a>
-      </p>
-      <p><%= product.escape("description") %></p>
-    </div>
-    <div class="col-xs-5 order-form"></div>
-  </div>
-</div> -->
-
 <div class="well product-well">
   <div class="row">
     <div class="col-xs-5">
@@ -20,7 +5,7 @@
       width="150" height="150">
       <div class="order-form"></div>
     </div>
-    <div class="col-xs-5">
+    <div class="col-xs-7">
       <h4 class="product-name"><%= product.escape("name") %>
       </h4>
       <p>by <a href="#/shops/<%= product.escape("shop_id") %>">

@@ -13,9 +13,10 @@
                 id='order_item_product_id'
                 value="<%= product.escape("id") %>" >
         <% if (CURRENT_USER.shop && CURRENT_USER.shop.id == product.escape("shop_id")) { %>
-          <input title="You cannot add your own product to cart"
-                type="submit" class="btn btn-primary btn-sm disabled"
-                value="Add to Cart" disabled>
+          <div class="disabled" title="You cannot add your own product to cart">
+            <input
+                type="submit" class="btn btn-primary btn-sm"
+                value="Add to Cart" disabled></div>
         <% } else { %>
           <input type="submit" class="btn btn-primary btn-sm" value="Add to Cart">
         <% } %>

@@ -22,6 +22,10 @@ hr {
   min-width: 1200px;
 }
 
+.navbar {
+  min-width: 1200px;
+}
+
 .shop-image {
   border-radius: 5px;
 }
@@ -159,7 +163,8 @@ input.quantity {
 }
 
 .not-found {
-  font-size: 2em;
+  font-size: 1em;
+  font-family: "Guardian-EgypTT-Text",Georgia,serif;
 }
 
 .product-name {

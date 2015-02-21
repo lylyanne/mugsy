@@ -3,7 +3,6 @@ EtsyClone.Views.BuyerOrderItemIndex = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
-    //this.listenTo(this.order_item.order(), 'sync', this.render);
   },
 
   addOrderItem: function(order_item) {
