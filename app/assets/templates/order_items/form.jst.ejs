@@ -1,8 +1,8 @@
 
-  <h4 class="text-right">Unit Price:
+  <h5 class="text-left">Unit Price:
     <span style="color: green">$<%= parseFloat(product.escape("price")).toFixed(2) %>
     </span>
-  </h4>
+  </h5>
   <div class="input-group add-to-cart">
     <form>
       <input type="number" class="form-control quantity" name='order_item[quantity]'
@@ -12,7 +12,13 @@
         <input type="hidden" name='order_item[product_id]'
                 id='order_item_product_id'
                 value="<%= product.escape("id") %>" >
-        <input type="submit" class="btn btn-primary" value="Add to Cart">
+        <% if (CURRENT_USER.shop && CURRENT_USER.shop.id == product.escape("shop_id")) { %>
+          <input title="You cannot add your own product to cart"
+                type="submit" class="btn btn-primary btn-sm disabled"
+                value="Add to Cart" disabled>
+        <% } else { %>
+          <input type="submit" class="btn btn-primary btn-sm" value="Add to Cart">
+        <% } %>
       </div>
     </form>
   </div>

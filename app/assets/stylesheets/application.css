@@ -18,10 +18,18 @@ hr {
   clear: both
 }
 
+#shop-navigation {
+  min-width: 1200px;
+}
+
 .shop-image {
-  margin: 5px 10px;
   border-radius: 5px;
+}
+
+.cart-image {
   float: left;
+  border-radius: 5px;
+  margin-right: 10px;
 }
 
 .shop-form-image {
@@ -86,13 +94,12 @@ a.nav-link:hover {
 }
 
 input.quantity {
-  width: 80px !important;
+  width: 70px !important;
+  height: 30px;
 }
 
 .edit-link {
-  font-size: 1.5em;
-  text-align: right;
-  margin-top: 10px;
+  font-size: 1em;
 }
 
 .product-well {
@@ -149,4 +156,25 @@ input.quantity {
   border: 1px solid lightgray;
   border-radius: 5px;
   background-color: #f5f5f5;
+}
+
+.not-found {
+  font-size: 2em;
+}
+
+.product-name {
+  font-family: "Guardian-EgypTT",Arial,sans-serif;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.description-text {
+  font-family: "Guardian-EgypTT-Text",Georgia,serif;
+  font-weight: 400;
+}
+
+.edit-product-link {
+  font-family: "Guardian-EgypTT-Text",Georgia,serif;
+  text-align: left;
+  margin-top: 5px;
 }

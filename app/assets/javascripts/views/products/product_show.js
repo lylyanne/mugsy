@@ -1,18 +1,17 @@
 EtsyClone.Views.ProductShow = Backbone.CompositeView.extend({
   template: JST["products/show"],
-  
+
   initialize: function (options) {
     this.shop = options.shop;
     this.listenTo(this.shop, 'sync', this.render);
     this.listenTo(this.model, 'sync', this.render);
   },
 
-  renderLinkOrForm: function () {
+  renderLinkAndForm: function () {
     if (this.shop.id == CURRENT_USER.shop.id) {
       this.renderLink();
-    } else {
-      this.renderOrderItemForm();
     }
+    this.renderOrderItemForm();
   },
 
   renderOrderItemForm: function () {
@@ -31,8 +30,8 @@ EtsyClone.Views.ProductShow = Backbone.CompositeView.extend({
     var linkView = new EtsyClone.Views.EditProductLink({
       product: this.model
     });
-
-    this.addSubview('.order-form', linkView);
+    
+    this.addSubview('.edit-product-link', linkView);
   },
 
   render: function () {
@@ -42,7 +41,7 @@ EtsyClone.Views.ProductShow = Backbone.CompositeView.extend({
     });
 
     this.$el.html(renderedContent);
-    this.renderLinkOrForm();
+    this.renderLinkAndForm();
     return this;
   }
 });

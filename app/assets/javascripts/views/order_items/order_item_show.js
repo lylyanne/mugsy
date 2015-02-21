@@ -5,7 +5,6 @@ EtsyClone.Views.OrderItemShow = Backbone.CompositeView.extend({
     this.product = options.product;
     this.listenTo(this.product, "sync", this.render);
     this.listenTo(this.model, "sync add remove", this.render);
-    //this.listenTo(this.product.shop(), "sync", this.render);
   },
 
   renderUpdateCart: function () {
