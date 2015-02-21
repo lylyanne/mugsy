@@ -26,6 +26,11 @@ hr {
   min-width: 1200px;
 }
 
+.brand {
+  font-family: 'Lobster', cursive;
+  font-size: 24px;
+}
+
 .shop-image {
   border-radius: 5px;
 }
