@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
     :shop,
     class_name: "Shop",
     foreign_key: :owner_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(

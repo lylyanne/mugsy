@@ -22,10 +22,6 @@ hr {
   min-width: 1200px;
 }
 
-.navbar {
-  min-width: 1200px;
-}
-
 .brand {
   font-family: 'Lobster', cursive;
   font-size: 24px;
@@ -119,13 +115,8 @@ input.quantity {
 }
 
 .one-item .product-well {
-  width: 100%;
+  width: 80%;
   margin: 0;
-  height: 200px;
-}
-
-.one-item .product-well .add-to-cart {
-  margin-left: 50px;
 }
 
 #bg:before {

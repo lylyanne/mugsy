@@ -21,7 +21,7 @@ class Shop < ActiveRecord::Base
     primary_key: :id
   )
 
-  has_many :products
+  has_many :products, dependent: :destroy
 
   def self.search(query)
     if query

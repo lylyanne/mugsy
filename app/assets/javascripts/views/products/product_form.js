@@ -37,6 +37,8 @@ EtsyClone.Views.ProductForm = Backbone.BaseView.extend({
   submit: function (event) {
     event.preventDefault();
     var that = this;
+
+    this.hideErrors();
     var $form = $(event.currentTarget);
     var params = $form.serializeJSON();
     _.extend(this._params, params);
