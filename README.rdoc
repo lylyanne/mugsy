@@ -1,28 +1,34 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Mugsy is an Etsy clone to buy and sell mugs.
 
-Things you may want to cover:
+Features available:
 
-* Ruby version
+* Create and Edit Shop
 
-* System dependencies
+* Add and Edit Products
 
-* Configuration
+* Add, Edit, Delete items from Shopping Cart
 
-* Database creation
+* Checkout items from Shopping Cart
 
-* Database initialization
+* All Sales page (for seller)
 
-* How to run the test suite
+* All Purchases page (for buyer)
 
-* Services (job queues, cache servers, search engines, etc.)
+* Search functionality
 
-* Deployment instructions
+* Seller can mark order as 'Shipped' to inform buyers that their item
+is on the way
 
-* ...
+Future Improvements:
+* Make the site mobile friendly
 
+* Improve the look and feel of the store
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Make the buyer able to CORRECTLY purchase from multiple sellers with a
+single checkout. This will require schema change!
+
+Please checkout mugsy at [www.mugsy.co](http://www.mugsy.co) and let me know what you think!
+
+Mugsy is built using Ruby, Rails, Backbone, jQuery, and filepicker.io
