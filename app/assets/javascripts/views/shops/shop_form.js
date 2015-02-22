@@ -1,4 +1,4 @@
-EtsyClone.Views.ShopForm = Backbone.View.extend({
+EtsyClone.Views.ShopForm = Backbone.BaseView.extend({
   template: JST["shops/form"],
 
   initialize: function () {
@@ -7,7 +7,7 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
     this._params["shop"] = {
       "name": null,
       "shop_image": null
-    }
+    };
   },
 
   events: {
@@ -35,38 +35,23 @@ EtsyClone.Views.ShopForm = Backbone.View.extend({
     );
   },
 
-  // showErrors: function(response) {
-  //   _(response.responseJSON).each(function (errors, name) {
-  //     var controlGroup = this.$('#shop_' + errors.name);
-  //     controlGroup.addClass('error');
-  //     _(errors).each(function (message) {
-  //       this.$('.help-inline').text(message);
-  //     })
-  //   });
-  // },
-  //
-  // hideErrors: function () {
-  //   this.$('.control-group').removeClass('error');
-  //   this.$('.help-inline').text('');
-  // },
-
   submit: function (event) {
     event.preventDefault();
     var that = this;
 
+    this.hideErrors();
     this._params.shop["name"] = $("#shop_name").val();
     this._params.shop["shop_image"] = $(".shop-form-image").attr("src");
     this.model.set(this._params);
     this.model.save({}, {
       success: function () {
-        //that.hideErrors();
         that.collection.add(that.model, { merge: true });
         CURRENT_USER.shop = that.model;
         Backbone.history.navigate("#/shops/" + that.model.id, { trigger: true });
       },
-      // error: function (model, response) {
-      //   that.showErrors(response);
-      // },
+      error: function (model, response) {
+        that.showErrors(response);
+      },
     });
   }
 });

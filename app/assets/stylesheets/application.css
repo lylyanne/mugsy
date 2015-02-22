@@ -188,3 +188,7 @@ input.quantity {
   text-align: left;
   margin-top: 5px;
 }
+
+.errors-div {
+  display: none;
+}

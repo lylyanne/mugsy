@@ -1,4 +1,4 @@
-EtsyClone.Views.ProductForm = Backbone.View.extend({
+EtsyClone.Views.ProductForm = Backbone.BaseView.extend({
   template: JST["products/form"],
 
   initialize: function () {
@@ -46,6 +46,9 @@ EtsyClone.Views.ProductForm = Backbone.View.extend({
       success: function () {
         CURRENT_USER.shop.products().add(that.model, { merge: true });
         Backbone.history.navigate("#/shops/" + CURRENT_USER.shop.id, { trigger: true });
+      },
+      error: function (model, response) {
+        that.showErrors(response);
       }
     });
   }

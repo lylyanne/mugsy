@@ -18,7 +18,3 @@ window.EtsyClone = {
     Backbone.history.start();
   }
 };
-
-// $(document).ready(function(){
-//   EtsyClone.initialize();
-// });
