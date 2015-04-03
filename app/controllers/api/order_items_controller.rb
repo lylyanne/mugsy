@@ -33,8 +33,9 @@ class Api::OrderItemsController < ApplicationController
 
   def index
     if params[:role] == "buyer"
+      @orders = Order.where("order_status_id IN (2, 4)")
       @order_items = OrderItem.all
-      .where(buyer_id: current_user.id)
+      .where(buyer_id: current_user.id, order_id: @orders)
       .includes(:buyer)
       .includes(:product)
       .order('created_at DESC')
